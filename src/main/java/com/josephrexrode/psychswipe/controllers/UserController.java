@@ -66,14 +66,14 @@ public class UserController {
 		
 		if (result.hasErrors()) {
 			model.addAttribute("newUser", new User());
-			return null;
+			return "/index.jsp";
 		}
 		
 		User user = uService.login(newLogin, result);
 		
 		if (user == null) {
 			model.addAttribute("newUser", new User());
-			return null;
+			return "/index.jsp";
 		}
 		
 		session.setAttribute("loggedUser", user);

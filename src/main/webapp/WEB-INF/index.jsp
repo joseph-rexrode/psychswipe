@@ -20,10 +20,69 @@
 <body>
 	<div class="wrapper">
 		<div class="card login">
-			<h2>Login</h2>	
+			<h2>Login</h2>
+			<div class="form">
+				<form:form action="/login" method="POST" modelAttribute="newLogin">
+					<div class="form--section">
+						<form:label path="email" class="form--section-label">Email: </form:label>
+						<form:input path="email" class="form--section-input" type="email"/>
+					</div>
+					<div class="form--section form--section-error">
+						<form:errors path="email" class="warning-text"/>
+					</div>
+					<div class="form--section">
+						<form:label path="password" class="form--section-label">Password: </form:label>
+						<form:input path="password" class="form--section-input" type="password"/>
+					</div>
+					<div class="form--section form--section-error">
+						<form:errors path="password" class="warning-text"/>
+					</div>
+					<input type="submit" value="Log in" class="form--btn">
+				</form:form>
+			</div>
+			<button class="switch">
+				<p>Sign up!<p>
+				<svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 3H12C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H13M17 8L21 12M21 12L17 16M21 12H9" stroke="#B18FCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+			</button>
 		</div>
 		<div class="card register">
 			<h2>Register</h2>
+			<div class="form">
+				<form:form action="/register" method="POST" modelAttribute="newUser">
+					<div class="form--section">
+						<form:label path="username">Username: </form:label>
+						<form:input path="username"/>
+					</div>
+					<div class="form--section form--section-error">
+						<form:errors path="username" class="warning-text"/>
+					</div>
+					<div class="form--section">
+						<form:label path="email">Email: </form:label>
+						<form:input path="email" type="email"/>
+					</div>
+					<div class="form--section form--section-error">
+						<form:errors path="email" class="warning-text"/>
+					</div>
+					<div class="form--section">
+						<form:label path="password">Password: </form:label>
+						<form:input path="password" type="password"/>
+					</div>
+					<div class="form--section form--section-error">
+						<form:errors path="password" class="warning-text"/>
+					</div>
+					<div class="form--section">
+						<form:label path="confirm">Confirm Password: </form:label>
+						<form:input path="confirm" type="password"/>
+					</div>
+					<div class="form--section form--section-error">
+						<form:errors path="confirm" class="warning-text"/>
+					</div>
+					<input type="submit" value="Register" class="form--btn">
+				</form:form>
+			</div>
+			<button class="switch">
+				Existing User?
+			</button>
 		</div>
 	</div>
 </body>

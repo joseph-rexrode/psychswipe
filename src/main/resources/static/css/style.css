@@ -15,12 +15,21 @@
 	--main-col: #B18FCF;
 	--secondary-col: #D8D8F6;
 	--accent-col: #978897;
+	--text-dark: #494850;
 }
 
 
 body {
 	margin: 0;
 	min-height: 100vh;
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	font-size: 20pt;
 }
 
 .wrapper {
@@ -33,7 +42,8 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	color: var(--secondary-col);
+	color: var(--text-dark);
+	background: var(--main-col);
 }
 
 
@@ -42,7 +52,7 @@ body {
 	max-width: 90%;
 	height: 450px;
 	border-radius: 20px;
-	background-color: var(--main-col);
+	background-color: var(--secondary-col);
 }
 
 .login, .register {
@@ -50,6 +60,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding: 1.5em;
 }
 
 .login {
@@ -58,4 +69,65 @@ body {
 
 .register {
 	z-index: 0;
+}
+
+.form {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 3em;
+}
+
+.form > * {
+	display: flex;
+	flex-direction: column;
+}
+
+.form--section {
+	padding: 1em 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5em;
+}
+
+.form--section-label {
+	flex: 1;
+}
+
+.form--section-input {
+	flex: 1.5;
+	padding: 0.5em;
+	border-radius: 5px;
+}
+
+.form > * > .form--section-error {
+	padding: 0em;
+}
+
+.form--btn {
+	color: var(--font-dark);
+	width: 50%;
+	margin-top: 2em;
+	padding: 1em;
+	border: 1px solid var(--main-col);
+	border-radius: 10px;
+	cursor: pointer;
+	align-self: center;
+	transition: 300ms;
+}
+
+.form--btn:hover {
+	background-color: var(--main-col);
+	color: var(--secondary-col);
+	width: 60%;
+}
+
+.switch {
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	color: var(--font-dark);
+	cursor: pointer;
 }
