@@ -65,6 +65,7 @@ h2 {
 
 .login {
 	z-index: 2;
+	
 }
 
 .register {
@@ -75,7 +76,7 @@ h2 {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	padding-top: 3em;
+	padding-top: 1em;
 }
 
 .form > * {
@@ -84,7 +85,7 @@ h2 {
 }
 
 .form--section {
-	padding: 1em 0;
+	padding: 0.85em 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -99,6 +100,7 @@ h2 {
 	flex: 1.5;
 	padding: 0.5em;
 	border-radius: 5px;
+	background-color: white;
 }
 
 .form > * > .form--section-error {
@@ -121,6 +123,10 @@ h2 {
 	background-color: var(--main-col);
 	color: var(--secondary-col);
 	width: 60%;
+}
+
+.btn--register {
+	margin-top: 0em;
 }
 
 .switch {
