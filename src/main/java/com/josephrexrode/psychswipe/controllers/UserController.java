@@ -81,4 +81,18 @@ public class UserController {
 		
 		return "redirect:/home";
 	}
+	
+	@GetMapping("/home")
+	public String home(
+			Model model,
+			HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
+		
+		model.addAttribute("loggedUser", session.getAttribute("loggedUser"));
+		
+		return "/home.jsp";
+	}
 }
