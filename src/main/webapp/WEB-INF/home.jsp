@@ -18,7 +18,8 @@
 </head>
 <body>
    Test Home Screen
-
+	
+	<a href="/logout" class="logout">Logout</a>
 	<script src="/js/script.js"></script>
 </body>
 </html>
