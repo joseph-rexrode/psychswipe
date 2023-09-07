@@ -17,4 +17,32 @@ public class Patient {
 	
 	@OneToOne(mappedBy = "patient")
 	private User user;
+	
+	private String insuranceProvider;
+	
+	public Patient() {}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getInsuranceProvider() {
+		return insuranceProvider;
+	}
+
+	public void setInsuranceProvider(String insuranceProvider) {
+		this.insuranceProvider = insuranceProvider;
+	}
 }
