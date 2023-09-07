@@ -98,6 +98,16 @@ public class UserController {
 		return "/home.jsp";
 	}
 	
+	// UPDATE PROFILE //
+	
+	@GetMapping("/profile")
+	public String profile(
+			Model model,
+			HttpSession session) {
+		
+		return "/profile.jsp";
+	}
+	
 	// LOGOUT //
 	
 	@GetMapping("/logout")

@@ -46,6 +46,21 @@ h2 {
 	background: var(--main-col);
 }
 
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35em;
+	position: absolute;
+	top: 1em;
+}
+
+.psych {
+	background: var(--accent-col);
+	color: white;
+	padding: 0.25em;
+	border-radius: 20px 0 20px 0;
+}
 
 .card {
 	width: 350px;
