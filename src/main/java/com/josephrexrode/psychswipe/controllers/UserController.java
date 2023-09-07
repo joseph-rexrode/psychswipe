@@ -82,6 +82,8 @@ public class UserController {
 		return "redirect:/home";
 	}
 	
+	// HOME SCREEN //
+	
 	@GetMapping("/home")
 	public String home(
 			Model model,
@@ -94,5 +96,19 @@ public class UserController {
 		model.addAttribute("loggedUser", session.getAttribute("loggedUser"));
 		
 		return "/home.jsp";
+	}
+	
+	// LOGOUT //
+	
+	@GetMapping("/logout")
+	public String logout(
+			HttpSession session,
+			Model model) {
+		
+		session.invalidate();
+		
+		model.addAttribute("newUser", new User());
+		model.addAttribute("newLogin", new LoginUser());
+		return "/index.jsp";
 	}
 }
