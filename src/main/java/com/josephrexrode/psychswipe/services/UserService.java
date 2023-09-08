@@ -56,4 +56,15 @@ public class UserService {
 		
 		return user;
 	}
+	
+	public User updateProfile(User current, User updated) {
+		
+		current.setFirstName(updated.getFirstName());
+		current.setLastName(updated.getLastName());
+		current.setAge(updated.getAge());
+		current.setEmail(updated.getEmail());
+		current.setUsername(updated.getUsername());
+		
+		return uRepo.save(current);
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.josephrexrode.psychswipe.models.LoginUser;
 import com.josephrexrode.psychswipe.models.User;
@@ -106,6 +107,27 @@ public class UserController {
 			HttpSession session) {
 		
 		return "/profile.jsp";
+	}
+	
+	
+	@PutMapping("/profile/update")
+	public String updateProfile(
+			BindingResult result,
+			HttpSession session,
+			@Valid @ModelAttribute("user") User user,
+			Model model) {
+		
+		User u = (User) session.getAttribute("loggedUser");
+		
+		uService.updateProfile(u, user);
+		
+		if (result.hasErrors()) {
+			model.addAttribute("user", u);
+			
+			return "/profile.jsp";
+		}
+		
+		return "redirect:/profile";
 	}
 	
 	
