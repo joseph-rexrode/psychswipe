@@ -24,37 +24,40 @@
 			<h1><span class="psych">Psych</span><span class="swipe">Swipe</span></h1>
 		</div>
 		
-		<div class="form">		
-			<form:form action="/profile/update" method="POST" modelAttribute="user">
-				<input type="hidden" name="_method" value="put">
-				
-				<div class="form--section-update">
-					<form:label path="firstName" class="form--section-label">First Name</form:label>
-					<form:input path="firstName" class="form--section-input"/>
-				</div>
-				<div class="form--section-update">
-					<form:label path="lastName" class="form--section-label">Last Name</form:label>
-					<form:input path="lastName" class="form--section-input"/>
-				</div>
-				<div class="form--section-update">
-					<form:label path="username" class="form--section-label">Username</form:label>
-					<form:input path="username" class="form--section-input"/>
-					<form:errors path="username"></form:errors>
-				</div>
-				<div class="form--section-update">
-					<form:label path="email" class="form--section-label">Email</form:label>
-					<form:input path="email" class="form--section-input" type="email"/>
-					<form:errors path="email"></form:errors>
-				</div>
-				<div class="form--section-update">
-					<form:label path="age" class="form--section-label">Age</form:label>
-					<form:input path="age" class="form--section-input" type="number"/>
-				</div>
-				<div class="form--section-update">
-					<button class="btn--update">Update Profile Info</button>
-				</div>
-			</form:form>
+		<div class="main">
+			<div class="form form--update">		
+				<form:form action="/profile/update" method="POST" modelAttribute="user">
+					<input type="hidden" name="_method" value="put">
+					
+					<div class="form--section-update">
+						<form:label path="firstName" class="form--section-label">First Name</form:label>
+						<form:input path="firstName" class="form--section-input"/>
+					</div>
+					<div class="form--section-update">
+						<form:label path="lastName" class="form--section-label">Last Name</form:label>
+						<form:input path="lastName" class="form--section-input"/>
+					</div>
+					<div class="form--section-update">
+						<form:label path="username" class="form--section-label">Username</form:label>
+						<form:input path="username" class="form--section-input"/>
+						<form:errors path="username"></form:errors>
+					</div>
+					<div class="form--section-update">
+						<form:label path="email" class="form--section-label">Email</form:label>
+						<form:input path="email" class="form--section-input" type="email"/>
+						<form:errors path="email"></form:errors>
+					</div>
+					<div class="form--section-update">
+						<form:label path="age" class="form--section-label">Age</form:label>
+						<form:input path="age" class="form--section-input" type="number"/>
+					</div>
+					<div class="form--section-update">
+						<button class="btn--update">Update </button>
+					</div>
+				</form:form>
+			</div>
 		</div>
+		
 				
 		<div class="footer--nav">
 			<a href="/home">

@@ -34,16 +34,24 @@ h2 {
 
 .wrapper {
 	width: 100%;
-	min-height: inherit;
+	min-height: 100vh;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	top: 0;
 	left: 0;
+	color: var(--text-dark);
+	background: var(--main-col);
+}
+
+.main {
+	width: 100%;
+	min-height: 600px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	color: var(--text-dark);
-	background: var(--main-col);
 }
 
 .header {
@@ -51,8 +59,8 @@ h2 {
 	align-items: center;
 	justify-content: center;
 	gap: 0.35em;
-	position: absolute;
-	top: 1em;
+	position: relative;
+	top: 20px;
 }
 
 .psych {
@@ -153,13 +161,8 @@ h2 {
 	cursor: pointer;
 }
 
-
-
-
-
-
 .footer--nav {
-	position: absolute;
+	position: sticky;
 	bottom: 0;
 	width: 100%;
 	background: white;
@@ -194,4 +197,34 @@ h2 {
 .active > svg > g > g > #Dribbble-Light-Preview,
 .active > svg > #SVGRepo_iconCarrier_matches > path {
 	fill: var(--text-dark);
+}
+
+
+
+/* UPDATE PROFILE SECTION */
+
+.form--section-update {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+
+.form--update {
+	width: 80%;
+	overflow-y: scroll;
+	position: relative;
+}
+
+.form--update > * {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+.btn--update {
+	margin-top: 1em;
+	padding: 1em 2em;
+	background: var(--secondary-col);
+	align-self: flex-end;
+	border-radius: 15px 2px 15px 2px;
 }
