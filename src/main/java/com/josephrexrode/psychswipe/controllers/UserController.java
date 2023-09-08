@@ -52,7 +52,7 @@ public class UserController {
 			return "/index.jsp";
 		}
 		
-		session.setAttribute("loggedUser", user);
+		session.setAttribute("loggedUser", user.getId());
 		
 		
 		return "redirect:/home";
@@ -77,7 +77,7 @@ public class UserController {
 			return "/index.jsp";
 		}
 		
-		session.setAttribute("loggedUser", user);
+		session.setAttribute("loggedUser", user.getId());
 		
 		
 		return "redirect:/home";
@@ -103,8 +103,13 @@ public class UserController {
 	
 	@GetMapping("/profile")
 	public String profile(
+			@ModelAttribute("user") User user,
 			Model model,
 			HttpSession session) {
+		
+		Long id = (Long) session.getAttribute("loggedUser");
+		user = uService.findById(id);
+		model.addAttribute("user", user);
 		
 		return "/profile.jsp";
 	}
@@ -112,20 +117,21 @@ public class UserController {
 	
 	@PutMapping("/profile/update")
 	public String updateProfile(
-			BindingResult result,
-			HttpSession session,
 			@Valid @ModelAttribute("user") User user,
-			Model model) {
-		
-		User u = (User) session.getAttribute("loggedUser");
-		
-		uService.updateProfile(u, user);
+			Model model,
+			BindingResult result,
+			HttpSession session) {
+			
+		User u = uService.findById((Long) session.getAttribute("loggedUser"));
 		
 		if (result.hasErrors()) {
 			model.addAttribute("user", u);
 			
 			return "/profile.jsp";
 		}
+		
+		uService.updateProfile(u, user);
+		
 		
 		return "redirect:/profile";
 	}
