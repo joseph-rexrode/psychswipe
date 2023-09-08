@@ -108,6 +108,15 @@ public class UserController {
 		return "/profile.jsp";
 	}
 	
+	
+	@GetMapping("/matches")
+	public String matches(
+			Model model,
+			HttpSession session) {
+		
+		return "/matches.jsp";
+	}
+	
 	// LOGOUT //
 	
 	@GetMapping("/logout")
