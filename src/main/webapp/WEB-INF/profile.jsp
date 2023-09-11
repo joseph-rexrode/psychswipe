@@ -25,6 +25,12 @@
 		</div>
 		
 		<div class="main">
+			<div class="profile">
+				<div class="profile--avatar">
+				
+				</div>
+				<h1 class="profile--name">${user.getFirstName()} ${user.getLastName()}</h1>
+			</div>
 			<div class="form form--update">		
 				<form:form action="/profile/update" method="POST" modelAttribute="user">
 					<input type="hidden" name="_method" value="put">
