@@ -107,6 +107,10 @@ public class UserController {
 			Model model,
 			HttpSession session) {
 		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
+		
 		Long id = (Long) session.getAttribute("loggedUser");
 		user = uService.findById(id);
 		model.addAttribute("user", user);
@@ -141,6 +145,10 @@ public class UserController {
 	public String matches(
 			Model model,
 			HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
 		
 		return "/matches.jsp";
 	}
