@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
 *, ::before, ::after {
 	box-sizing: border-box;
 	margin: 0;
@@ -16,12 +18,14 @@
 	--secondary-col: #D8D8F6;
 	--accent-col: #978897;
 	--text-dark: #494850;
+	--ff-rubik: "Rubik";
 }
 
 
 body {
 	margin: 0;
 	min-height: 100vh;
+	font-family: var(--ff-rubik);
 }
 
 h1 {
