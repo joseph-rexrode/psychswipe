@@ -226,5 +226,21 @@ h2 {
 	padding: 1em 2em;
 	background: var(--secondary-col);
 	align-self: flex-end;
+	border: 3px solid var(--main-col);
 	border-radius: 15px 2px 15px 2px;
+	cursor: pointer;
+	transition: 300ms;
+}
+
+.btn--update:hover {
+	border: 3px solid var(--secondary-col);
+	background: var(--main-col);
+	color: white;
+	transform: translateY(-3px);
+	box-shadow: -0.3em 0em 0.7em -0.2em black;
+}
+
+.btn--update:active {
+	transform: translateY(0px);
+	box-shadow: none;
 }
