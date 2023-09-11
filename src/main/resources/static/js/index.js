@@ -3,6 +3,7 @@ var registerCard = document.querySelector(".register");
 var loginSwitch = document.getElementById("switch-login");
 var registerSwitch = document.getElementById("switch-register");
 
+
 loginSwitch.addEventListener("click", function() {
 	loginCard.style.zIndex = "1";
 	registerCard.style.zIndex = "2";

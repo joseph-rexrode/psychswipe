@@ -203,6 +203,17 @@ h2 {
 
 /* UPDATE PROFILE SECTION */
 
+.profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.btn--accent.btn--edit {
+	align-self: center;
+}
+
+
 .form--section-update {
 	display: flex;
 	flex-direction: column;
@@ -213,6 +224,15 @@ h2 {
 	width: 80%;
 	overflow-y: scroll;
 	position: relative;
+	max-height: 0px;
+	opacity: 0;
+	transition: max-height 600ms 0ms, opacity 400ms 0ms;
+}
+
+.visible {
+	max-height: 1000px;
+	opacity: 1;
+	transition: max-height 600ms 0ms, opacity 400ms 0ms;
 }
 
 .form--update > * {
@@ -221,7 +241,7 @@ h2 {
 	gap: 0.5em;
 }
 
-.btn--update {
+.btn--accent {
 	margin-top: 1em;
 	padding: 1em 2em;
 	background: var(--secondary-col);
@@ -232,7 +252,7 @@ h2 {
 	transition: 300ms;
 }
 
-.btn--update:hover {
+.btn--accent:hover {
 	border: 3px solid var(--secondary-col);
 	background: var(--main-col);
 	color: white;
@@ -240,7 +260,7 @@ h2 {
 	box-shadow: -0.3em 0em 0.7em -0.2em black;
 }
 
-.btn--update:active {
+.btn--accent:active {
 	transform: translateY(0px);
 	box-shadow: none;
 }

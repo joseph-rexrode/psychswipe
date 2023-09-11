@@ -30,6 +30,7 @@
 				
 				</div>
 				<h1 class="profile--name">${user.getFirstName()} ${user.getLastName()}</h1>
+				<button class="btn--accent btn--edit">Edit</button>
 			</div>
 			<div class="form form--update">		
 				<form:form action="/profile/update" method="POST" modelAttribute="user">
@@ -58,7 +59,7 @@
 						<form:input path="age" class="form--section-input" type="number"/>
 					</div>
 					<div class="form--section-update">
-						<button class="btn--update">Update </button>
+						<button class="btn--accent">Update </button>
 					</div>
 				</form:form>
 			</div>
@@ -80,6 +81,6 @@
 			</a>
 		</div>
 	</div>
-	<script src="/js/script.js"></script>
+	<script src="/js/profile.js"></script>
 </body>
 </html>
