@@ -46,7 +46,7 @@ h2 {
 	top: 0;
 	left: 0;
 	color: var(--text-dark);
-	background: var(--main-col);
+	background: white;
 }
 
 .main {
@@ -64,14 +64,20 @@ h2 {
 	justify-content: center;
 	gap: 0.35em;
 	position: relative;
-	top: 20px;
+	top: 0px;
+	padding: 1.5em 0;
+	background-color: var(--text-dark);
 }
 
 .psych {
-	background: var(--accent-col);
+	background: var(--main-col);
 	color: white;
 	padding: 0.25em;
 	border-radius: 20px 0 20px 0;
+}
+
+.swipe {
+	color: white;
 }
 
 .card {
@@ -79,7 +85,7 @@ h2 {
 	max-width: 90%;
 	height: 450px;
 	border-radius: 20px;
-	background-color: var(--secondary-col);
+	background-color: var(--main-col);
 }
 
 .login, .register {
@@ -128,32 +134,25 @@ h2 {
 	padding: 0.5em;
 	border-radius: 5px;
 	background-color: white;
+	border: 1px solid var(--secondary-col);
 }
 
 .form > * > .form--section-error {
 	padding: 0em;
 }
 
-.form--btn {
-	color: var(--font-dark);
-	width: 50%;
-	margin-top: 2em;
-	padding: 1em;
-	border: 1px solid var(--main-col);
-	border-radius: 10px;
-	cursor: pointer;
-	align-self: center;
-	transition: 300ms;
-}
-
-.form--btn:hover {
-	background-color: var(--main-col);
-	color: var(--secondary-col);
-	width: 60%;
-}
-
 .btn--register {
 	margin-top: 0em;
+}
+
+.btn--accent.btn--login, .btn--accent.btn--register {
+	border: none;
+	align-self: center;
+}
+
+.btn--accent.btn--login:hover, .btn--accent.btn--register:hover {
+	background-color: var(--secondary-col);
+	color: var(--text-dark);
 }
 
 .switch {
@@ -169,7 +168,7 @@ h2 {
 	position: sticky;
 	bottom: 0;
 	width: 100%;
-	background: white;
+	background: var(--text-dark);
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
@@ -190,17 +189,13 @@ h2 {
 	transform: scale(1.1);
 }
 
-.active {
-	background: var(--main-col);
-}
-
 .active > svg > #SVGRepo_iconCarrier_home > path {
-	stroke: var(--text-dark);
+	stroke: var(--main-col);
 }
 
 .active > svg > g > g > #Dribbble-Light-Preview,
 .active > svg > #SVGRepo_iconCarrier_matches > path {
-	fill: var(--text-dark);
+	fill: var(--main-col);
 }
 
 
@@ -217,7 +212,7 @@ h2 {
 .profile--avatar {
 	width: 150px;
 	height: 150px;
-	background: var(--accent-col);
+	background: var(--main-col);
 	border-radius: 100%;
 	display: flex;
 	align-items: center;
@@ -233,15 +228,14 @@ h2 {
 	
 }
 
-.btn--accent.btn--edit {
-	align-self: center;
-}
-
-
 .form--section-update {
 	display: flex;
 	flex-direction: column;
 	gap: 0.25em;
+}
+
+.form--section-update > input {
+	margin-left: 1.5em;
 }
 
 .form--update {
@@ -268,16 +262,18 @@ h2 {
 .btn--accent {
 	margin-top: 1em;
 	padding: 1em 2em;
-	background: var(--secondary-col);
-	align-self: flex-end;
+	background: white;
 	border: 3px solid var(--main-col);
 	border-radius: 15px 2px 15px 2px;
 	cursor: pointer;
 	transition: 300ms;
 }
 
+#update {
+	align-self: flex-end;
+}
+
 .btn--accent:hover {
-	border: 3px solid var(--secondary-col);
 	background: var(--main-col);
 	color: white;
 	transform: translateY(-3px);

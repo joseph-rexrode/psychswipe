@@ -140,6 +140,7 @@ public class UserController {
 		return "redirect:/profile";
 	}
 	
+	// MATCHES //
 	
 	@GetMapping("/matches")
 	public String matches(

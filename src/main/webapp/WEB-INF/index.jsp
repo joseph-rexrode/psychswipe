@@ -43,7 +43,7 @@
 						<div class="form--section form--section-error">
 							<form:errors path="password" class="warning-text"/>
 						</div>
-						<input type="submit" value="Log in" class="form--btn">
+						<input type="submit" value="Log in" class="btn--accent btn--login">
 					</form:form>
 				</div>
 				<button class="switch" id="switch-login">
@@ -83,7 +83,7 @@
 						<div class="form--section form--section-error">
 							<form:errors path="confirm" class="warning-text"/>
 						</div>
-						<input type="submit" value="Register" class="form--btn btn--register">
+						<input type="submit" value="Register" class="btn--accent btn--register">
 					</form:form>
 				</div>
 				<button class="switch" id="switch-register">

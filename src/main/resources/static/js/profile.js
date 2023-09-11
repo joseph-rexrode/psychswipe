@@ -8,10 +8,10 @@ function toggleUpdateForm() {
 	updateForm.classList.toggle("visible");
 	avatar.classList.toggle("profile--avatar-mini");
 	
-	if (editButton.innerHTML == "Edit") {
+	if (editButton.innerHTML == "Edit Basic Info") {
 		editButton.innerHTML = "Cancel";
 	}
 	else {
-		editButton.innerHTML = "Edit";
+		editButton.innerHTML = "Edit Basic Info";
 	}
 }
