@@ -96,6 +96,16 @@ public class UserController {
 		
 		model.addAttribute("loggedUser", session.getAttribute("loggedUser"));
 		
+		User user = uService.findById((Long) session.getAttribute("loggedUser"));
+		
+		if (user.getPatient() == null && user.getProvider() == null) {
+			return "/home_first.jsp";
+		}
+		
+		else if (user.getPatient() == null) {
+			return "/home_provider.jsp";
+		}
+		
 		return "/home.jsp";
 	}
 	
