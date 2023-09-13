@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.josephrexrode.psychswipe.models.LoginUser;
+import com.josephrexrode.psychswipe.models.Patient;
 import com.josephrexrode.psychswipe.models.User;
 import com.josephrexrode.psychswipe.services.UserService;
 
@@ -87,6 +88,7 @@ public class UserController {
 	
 	@GetMapping("/home")
 	public String home(
+			@ModelAttribute("newPatient") Patient newPatient,
 			Model model,
 			HttpSession session) {
 		

@@ -30,7 +30,16 @@
 			
 			<button class="btn--accent" id="btn--patient">I'm a patient</button>
 			
-			<div class="card hidden" id="form--patient"></div>
+			<div class="card hidden" id="form--patient">
+				<div class="form">
+					<form:form action="/newPatient" method="POST" modelAttribute="newPatient">
+						<div class="form--section">
+							<form:label path="stateOfResidence" class="form--section-label">State</form:label>
+							<form:input path="stateOfResidence" class="form--section-input"/> 
+						</div>
+					</form:form>
+				</div>
+			</div>
 			
 			<button class="btn--accent" id="btn--provider">I'm a provider</button>
 			
