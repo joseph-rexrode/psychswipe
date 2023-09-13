@@ -2,7 +2,6 @@ var patientButton = document.getElementById("btn--patient");
 var providerButton = document.getElementById("btn--provider");
 var welcomeText = document.querySelector(".welcome");
 
-console.log(providerButton);
 
 patientButton.addEventListener("click", () => { toggleFormVisibility("form--patient", "form--provider"); });
 providerButton.addEventListener("click", () => { toggleFormVisibility("form--provider", "form--patient"); });
@@ -23,7 +22,10 @@ function toggleFormVisibility(el, other) {
 	}
 
 	form.classList.toggle("hidden");
+	console.log(providerButton);
 	form.classList.toggle("visible");
+	console.log(providerButton);
+
 	
 	if (otherForm.classList.contains("visible") && form.classList.contains("visible")) {
 		otherForm.classList.toggle("visible");

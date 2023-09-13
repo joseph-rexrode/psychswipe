@@ -196,6 +196,7 @@ h2 {
 	max-height: 0px;
 	opacity: 0;
 	transition: max-height 600ms 0ms, opacity 400ms 0ms;
+	z-index: -1;
 }
 
 /* LOGIN & REG SPECIFIC */
