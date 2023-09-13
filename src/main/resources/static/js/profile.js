@@ -6,6 +6,7 @@ editButton.addEventListener("click", toggleUpdateForm);
 
 function toggleUpdateForm() {
 	updateForm.classList.toggle("visible");
+	updateForm.classList.toggle("hidden");
 	avatar.classList.toggle("profile--avatar-mini");
 	
 	if (editButton.innerHTML == "Edit Basic Info") {

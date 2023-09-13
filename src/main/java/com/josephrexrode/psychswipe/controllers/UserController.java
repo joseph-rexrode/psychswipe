@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -125,6 +124,8 @@ public class UserController {
 				states.add(line);
 				line = bf.readLine();
 			}
+			
+			bf.close();
 			
 			model.addAttribute("states", states);
 			

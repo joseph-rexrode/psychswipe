@@ -32,7 +32,7 @@
 				<h1 class="profile--name">${user.getFirstName()} ${user.getLastName()}</h1>
 				<button class="btn--accent btn--edit">Edit Basic Info</button>
 			</div>
-			<div class="form form--update">		
+			<div class="form form--update hidden">		
 				<form:form action="/profile/update" method="POST" modelAttribute="user">
 					<input type="hidden" name="_method" value="put">
 					

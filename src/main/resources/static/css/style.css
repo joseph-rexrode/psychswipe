@@ -107,11 +107,23 @@ h2 {
 }
 
 .form--section {
-	padding: 0.85em 0;
+	padding: 0.85em 1.5em;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 0.5em;
+}
+
+.form--section-column-input {
+	padding: 0.5em;
+	border-radius: 5px;
+	background-color: white;
+	border: 1px solid var(--secondary-col);
+}
+
+.form--section-column-input, 
+.form--section-column-label {
+	margin: 0.85em 1.5em;
 }
 
 .form--section-label {
@@ -197,6 +209,15 @@ h2 {
 	opacity: 0;
 	transition: max-height 600ms 0ms, opacity 400ms 0ms;
 	z-index: -1;
+	margin: 0;
+	padding: 0;
+}
+
+.hidden > *,
+.hidden > * > *,
+.hidden > * > * > * {
+	margin: 0;
+	padding: 0;
 }
 
 /* LOGIN & REG SPECIFIC */
@@ -296,9 +317,6 @@ h2 {
 	width: 80%;
 	overflow-y: scroll;
 	position: relative;
-	max-height: 0px;
-	opacity: 0;
-	transition: max-height 600ms 0ms, opacity 400ms 0ms;
 }
 
 .form--update > * {

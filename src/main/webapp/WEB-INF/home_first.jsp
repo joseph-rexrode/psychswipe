@@ -35,10 +35,26 @@
 					<form:form action="/newPatient" method="POST" modelAttribute="newPatient">
 						<div class="form--section">
 							<form:label path="stateOfResidence" class="form--section-label">State</form:label>
-							<form:select path="stateOfResidence">
+							<form:select path="stateOfResidence" class="form--section-input">
 								<form:options items="${states}"/>
 							</form:select>
 						</div>
+						<div class="form--section">
+							<form:label path="openToTelehealth" class="form--section-label">Open to Telehealth?</form:label>
+							<form:select path="openToTelehealth" class="form--section-input">
+								<form:option value="Not Selected" selected="true" disabled="true"></form:option>
+								<form:option value="Yes"/>
+								<form:option value="No"/>
+							</form:select>
+						</div>
+						<div class="form--section">
+							<form:label path="insuranceProvider" class="form--section-label">Insurance Provider</form:label>
+							<form:select path="insuranceProvider" class="form--section-input">
+							</form:select>
+						</div>
+						<form:label path="insuranceRequirement" class="form--section-column-label">Do you require that your potential provider accept insurance?</form:label>
+						<form:select path="insuranceRequirement" class="form--section-column-input">
+						</form:select>
 					</form:form>
 				</div>
 			</div>
