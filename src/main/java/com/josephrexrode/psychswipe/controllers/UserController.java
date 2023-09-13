@@ -1,9 +1,19 @@
 package com.josephrexrode.psychswipe.controllers;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -92,7 +102,7 @@ public class UserController {
 			@ModelAttribute("newPatient") Patient newPatient,
 			@ModelAttribute("newProvider") Provider newProvider,
 			Model model,
-			HttpSession session) {
+			HttpSession session) throws IOException {
 		
 		if (session.getAttribute("loggedUser") == null) {
 			return "redirect:/";
@@ -102,7 +112,22 @@ public class UserController {
 		
 		User user = uService.findById((Long) session.getAttribute("loggedUser"));
 		
-		if (user.getPatient() == null && user.getProvider() == null) {
+		if (user.getPatient() == null && user.getProvider() == null) {	
+			
+			Resource resource = new ClassPathResource("/static/states.txt");
+			File file = resource.getFile();
+			BufferedReader bf = new BufferedReader(new FileReader(file));
+			
+			String line = bf.readLine();
+			List<String> states = new ArrayList<String>();
+			
+			while (line != null) {
+				states.add(line);
+				line = bf.readLine();
+			}
+			
+			model.addAttribute("states", states);
+			
 			return "/home_first.jsp";
 		}
 		

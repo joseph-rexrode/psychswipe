@@ -35,7 +35,9 @@
 					<form:form action="/newPatient" method="POST" modelAttribute="newPatient">
 						<div class="form--section">
 							<form:label path="stateOfResidence" class="form--section-label">State</form:label>
-							<form:input path="stateOfResidence" class="form--section-input"/> 
+							<form:select path="stateOfResidence">
+								<form:options items="${states}"/>
+							</form:select>
 						</div>
 					</form:form>
 				</div>
