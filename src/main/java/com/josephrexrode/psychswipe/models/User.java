@@ -38,8 +38,7 @@ public class User {
 	@JoinColumn(name = "provider_id")
 	private Provider provider;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "patient_id")
+	@OneToOne(mappedBy = "user")
 	private Patient patient;
 	
 	public User() {}

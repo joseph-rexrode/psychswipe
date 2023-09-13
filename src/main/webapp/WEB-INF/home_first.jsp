@@ -43,18 +43,25 @@
 							<form:label path="openToTelehealth" class="form--section-label">Open to Telehealth?</form:label>
 							<form:select path="openToTelehealth" class="form--section-input">
 								<form:option value="Not Selected" selected="true" disabled="true"></form:option>
-								<form:option value="Yes"/>
-								<form:option value="No"/>
+								<form:option value="true">Yes</form:option>
+								<form:option value="false">No</form:option>
 							</form:select>
 						</div>
 						<div class="form--section">
 							<form:label path="insuranceProvider" class="form--section-label">Insurance Provider</form:label>
-							<form:select path="insuranceProvider" class="form--section-input">
+							<form:select path="insuranceProvider" class="form--section-input selection">
+								<form:options items="${insuranceProviders}"/>
 							</form:select>
 						</div>
 						<form:label path="insuranceRequirement" class="form--section-column-label">Do you require that your potential provider accept insurance?</form:label>
 						<form:select path="insuranceRequirement" class="form--section-column-input">
+							<form:option value="Not Selected" selected="true" disabled="true"></form:option>
+							<form:option value="true">Yes</form:option>
+							<form:option value="false">No</form:option>
 						</form:select>
+						<div class="form--section">
+							<button class="btn--accent create">Create Patient Profile</button>
+						</div>
 					</form:form>
 				</div>
 			</div>

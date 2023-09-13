@@ -136,6 +136,7 @@ h2 {
 	border-radius: 5px;
 	background-color: white;
 	border: 1px solid var(--secondary-col);
+	overflow: hidden;
 }
 
 .form > * > .form--section-error {
@@ -196,6 +197,15 @@ h2 {
 .btn--accent:active {
 	transform: translateY(0px);
 	box-shadow: none;
+}
+
+.btn--accent.create {
+	border: none;
+}
+
+.btn--accent.create:hover {
+	background: var(--secondary-col);
+	color: var(--text-dark);
 }
 
 .visible {
@@ -273,6 +283,11 @@ h2 {
 
 #form--patient, #form--provider {
 	margin-top: 1em;
+}
+
+.form--section-input.selection {
+	
+	max-width: 61%;
 }
 
 /* UPDATE PROFILE SECTION */

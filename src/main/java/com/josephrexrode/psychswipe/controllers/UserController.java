@@ -1,18 +1,12 @@
 package com.josephrexrode.psychswipe.controllers;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +20,7 @@ import com.josephrexrode.psychswipe.models.Patient;
 import com.josephrexrode.psychswipe.models.Provider;
 import com.josephrexrode.psychswipe.models.User;
 import com.josephrexrode.psychswipe.services.UserService;
+import com.josephrexrode.psychswipe.statics.Statics;
 
 @Controller
 public class UserController {
@@ -113,21 +108,15 @@ public class UserController {
 		
 		if (user.getPatient() == null && user.getProvider() == null) {	
 			
-			Resource resource = new ClassPathResource("/static/states.txt");
-			File file = resource.getFile();
-			BufferedReader bf = new BufferedReader(new FileReader(file));
+			Statics s = new Statics();
 			
-			String line = bf.readLine();
-			List<String> states = new ArrayList<String>();
-			
-			while (line != null) {
-				states.add(line);
-				line = bf.readLine();
-			}
-			
-			bf.close();
+			List<String> states = s.getStates();
+			List<String> insuranceProviders = s.getInsuranceProviders();
 			
 			model.addAttribute("states", states);
+			model.addAttribute("insuranceProviders", insuranceProviders);
+			model.addAttribute("newPatient", new Patient());
+			model.addAttribute("newProvider", new Provider());
 			
 			return "/home_first.jsp";
 		}

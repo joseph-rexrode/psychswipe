@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.josephrexrode.psychswipe.models.Patient;
+import com.josephrexrode.psychswipe.models.User;
 import com.josephrexrode.psychswipe.repositories.PatientRepository;
 
 @Service
@@ -16,7 +17,9 @@ public class PatientService {
 	
 		// create
 	
-		public Patient create(Patient p) {
+		public Patient create(Patient p, User u) {
+			
+			p.setUser(u);
 			return pRepo.save(p);
 		}
 		
