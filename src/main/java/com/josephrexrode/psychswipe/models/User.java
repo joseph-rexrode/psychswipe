@@ -1,11 +1,9 @@
 package com.josephrexrode.psychswipe.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -34,8 +32,7 @@ public class User {
 	
 	private Integer age;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "provider_id")
+	@OneToOne(mappedBy = "user")
 	private Provider provider;
 	
 	@OneToOne(mappedBy = "user")

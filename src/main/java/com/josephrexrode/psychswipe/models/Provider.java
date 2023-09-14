@@ -2,10 +2,12 @@ package com.josephrexrode.psychswipe.models;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,10 +19,15 @@ public class Provider {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(mappedBy = "provider")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
 	private User user;
 	
 	private ArrayList<String> insuranceProvidersAccepted;
+	
+	private ArrayList<String> statesLicensedIn;
+	
+	private Boolean provideTelehealth;
 	
 	public Provider() {}
 
@@ -46,6 +53,22 @@ public class Provider {
 
 	public void setInsuranceProvidersAccepted(ArrayList<String> insuranceProvidersAccepted) {
 		this.insuranceProvidersAccepted = insuranceProvidersAccepted;
+	}
+
+	public ArrayList<String> getStatesLicensedIn() {
+		return statesLicensedIn;
+	}
+
+	public void setStatesLicensedIn(ArrayList<String> statesLicensedIn) {
+		this.statesLicensedIn = statesLicensedIn;
+	}
+
+	public Boolean getProvideTelehealth() {
+		return provideTelehealth;
+	}
+
+	public void setProvideTelehealth(Boolean provideTelehealth) {
+		this.provideTelehealth = provideTelehealth;
 	}
 	
 }

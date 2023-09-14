@@ -228,6 +228,7 @@ h2 {
 .hidden > * > * > * {
 	margin: 0;
 	padding: 0;
+	max-height: 0px;
 }
 
 /* LOGIN & REG SPECIFIC */

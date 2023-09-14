@@ -68,7 +68,35 @@
 			
 			<button class="btn--accent" id="btn--provider">I'm a provider</button>
 			
-			<div class="card hidden" id="form--provider"></div>
+			<div class="card hidden" id="form--provider">
+				<div class="form">
+					<form:form action="/newProvider" method="POST" modelAttribute="newProvider">
+						<div class="form--section">
+							<form:label path="provideTelehealth" class="form--section-label">Do you offer telehealth services?</form:label>
+							<form:select path="provideTelehealth" class="form--section-input">
+								<form:option value="Not Selected" selected="true" disabled="true"></form:option>
+								<form:option value="true">Yes</form:option>
+								<form:option value="false">No</form:option>
+							</form:select>
+						</div>
+						<div class="form--section">
+							<form:label path="statesLicensedIn" class="form--section-label">States Licensed In</form:label>
+							<form:select path="statesLicensedIn" class="form--section-input" onchange="toggleState()">
+								<form:options items="${states}"/>
+							</form:select>
+						</div>
+						<div class="form--section">
+							<form:label path="insuranceProvidersAccepted" class="form--section-label">Insurance Providers Accepted</form:label>
+							<form:select path="insuranceProvidersAccepted" class="form--section-input selection" onchange="toggleInsurance()">
+								<form:options items="${insuranceProviders}"/>
+							</form:select>
+						</div>
+						<div class="form--section">
+							<button class="btn--accent create">Create Provider Profile</button>
+						</div>
+					</form:form>
+				</div>
+			</div>
 		</div>
 		
 		<div class="footer--nav">
