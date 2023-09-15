@@ -19,6 +19,8 @@ import com.josephrexrode.psychswipe.models.LoginUser;
 import com.josephrexrode.psychswipe.models.Patient;
 import com.josephrexrode.psychswipe.models.Provider;
 import com.josephrexrode.psychswipe.models.User;
+import com.josephrexrode.psychswipe.services.PatientService;
+import com.josephrexrode.psychswipe.services.ProviderService;
 import com.josephrexrode.psychswipe.services.UserService;
 import com.josephrexrode.psychswipe.statics.Statics;
 
@@ -27,6 +29,12 @@ public class UserController {
 	
 	@Autowired
 	UserService uService;
+	
+	@Autowired
+	ProviderService prService;
+	
+	@Autowired
+	PatientService paService;
 	
 	// LOGIN & REGISTRATION //
 	
@@ -106,6 +114,10 @@ public class UserController {
 		
 		User user = uService.findById((Long) session.getAttribute("loggedUser"));
 		
+		model.addAttribute("user", user);
+		
+		// No patient or provider profiles created yet
+		
 		if (user.getPatient() == null && user.getProvider() == null) {	
 			
 			Statics s = new Statics();
@@ -121,9 +133,14 @@ public class UserController {
 			return "/home_first.jsp";
 		}
 		
+		// Provider profile created
+		
 		else if (user.getPatient() == null) {
+			
 			return "/home_provider.jsp";
 		}
+		
+		// Either patient profile created, or both profiles created
 		
 		return "/home.jsp";
 	}
@@ -143,6 +160,12 @@ public class UserController {
 		Long id = (Long) session.getAttribute("loggedUser");
 		user = uService.findById(id);
 		model.addAttribute("user", user);
+		
+		Provider p = prService.findByUserId(id);
+		Patient pa = paService.findByUserId(id);
+		
+		model.addAttribute("provider", p != null ? true: false);
+		model.addAttribute("patient", pa != null ? true: false);
 		
 		return "/profile.jsp";
 	}

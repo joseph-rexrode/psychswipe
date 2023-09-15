@@ -25,7 +25,12 @@
 			<h1><span class="psych">Psych</span><span class="swipe">Swipe</span></h1>
 		</div>
 		
-		Home Screen where one profile has been created
+		<div class="main">		
+			<h1>
+				Hello<c:if test="${user.getFirstName() != null}">, ${user.getFirstName()}</c:if>
+			</h1>
+			<h2 class="subtitle">Patient</h2>
+		</div>
 				
 		<div class="footer--nav">
 			<a href="/home" class="active">

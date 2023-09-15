@@ -42,6 +42,12 @@ h2 {
 	text-align: center;
 }
 
+.subtitle {
+	font-size: 16pt;
+	font-style: italic;
+	opacity: 0.6;
+}
+
 .wrapper {
 	width: 100%;
 	min-height: 100vh;
@@ -62,6 +68,7 @@ h2 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 }
 
 .header {
@@ -223,9 +230,9 @@ h2 {
 	padding: 0;
 }
 
-.hidden > *,
-.hidden > * > *,
-.hidden > * > * > * {
+.card.hidden > *,
+.card.hidden > * > *,
+.card.hidden > * > * > * {
 	margin: 0;
 	padding: 0;
 	max-height: 0px;
@@ -280,7 +287,7 @@ h2 {
 }
 
 
-/* HOME SCREEN */
+/* HOME SCREEN - FIRST VISIT */
 
 #form--patient, #form--provider {
 	margin-top: 1em;
@@ -367,6 +374,12 @@ h2 {
 	z-index: 10;
 }
 
+/* HOME SCREEN - PROVIDER */
+
+.card--provider {
+	padding: 1em;
+}
+
 /* UPDATE PROFILE SECTION */
 
 .profile {
@@ -395,6 +408,14 @@ h2 {
 	
 }
 
+.profile--extra-actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1em;
+	margin-bottom: 1em;
+}
+
 .form--section-update {
 	display: flex;
 	flex-direction: column;
@@ -409,6 +430,7 @@ h2 {
 	width: 80%;
 	overflow-y: scroll;
 	position: relative;
+	padding: 0 0 1em 0;
 }
 
 .form--update > * {
@@ -417,7 +439,15 @@ h2 {
 	gap: 0.5em;
 }
 
-
 #update {
 	align-self: flex-end;
+}
+
+.btn--accent.btn--createNew {
+	border-color: var(--secondary-col);
+}
+
+.btn--accent.btn--createNew:hover {
+	background-color: var(--secondary-col);
+	color: var(--text-dark);
 }
