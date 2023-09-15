@@ -1,8 +1,12 @@
 package com.josephrexrode.psychswipe.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,9 +27,16 @@ public class Provider {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	private ArrayList<String> insuranceProvidersAccepted;
 	
-	private ArrayList<String> statesLicensedIn;
+	@ElementCollection(targetClass = String.class)
+	@CollectionTable(name = "insuranceProvidersAccepted", joinColumns = @JoinColumn(name = "user_id"))
+	@Column(name = "insuranceProviderAccepted", nullable = false)
+	private List<String> insuranceProvidersAccepted = new ArrayList<>();
+	
+	@ElementCollection(targetClass = String.class)
+	@CollectionTable(name = "statesLicensedIn", joinColumns = @JoinColumn(name = "user_id"))
+	@Column(name = "stateLicensedIn", nullable = false)
+	private List<String> statesLicensedIn = new ArrayList<>();
 	
 	private Boolean provideTelehealth;
 	
@@ -47,19 +58,19 @@ public class Provider {
 		this.user = user;
 	}
 
-	public ArrayList<String> getInsuranceProvidersAccepted() {
+	public List<String> getInsuranceProvidersAccepted() {
 		return insuranceProvidersAccepted;
 	}
 
-	public void setInsuranceProvidersAccepted(ArrayList<String> insuranceProvidersAccepted) {
+	public void setInsuranceProvidersAccepted(List<String> insuranceProvidersAccepted) {
 		this.insuranceProvidersAccepted = insuranceProvidersAccepted;
 	}
 
-	public ArrayList<String> getStatesLicensedIn() {
+	public List<String> getStatesLicensedIn() {
 		return statesLicensedIn;
 	}
 
-	public void setStatesLicensedIn(ArrayList<String> statesLicensedIn) {
+	public void setStatesLicensedIn(List<String> statesLicensedIn) {
 		this.statesLicensedIn = statesLicensedIn;
 	}
 
