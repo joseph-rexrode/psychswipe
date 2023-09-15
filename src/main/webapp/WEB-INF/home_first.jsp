@@ -81,15 +81,23 @@
 						</div>
 						<div class="form--section">
 							<form:label path="statesLicensedIn" class="form--section-label">States Licensed In</form:label>
-							<form:select path="statesLicensedIn" class="form--section-input" onchange="toggleState()">
-								<form:options items="${states}"/>
+							<form:select path="statesLicensedIn" class="form--section-input" id="states">
+								<form:options items="${states}" class="stateOption"/>
 							</form:select>
 						</div>
 						<div class="form--section">
 							<form:label path="insuranceProvidersAccepted" class="form--section-label">Insurance Providers Accepted</form:label>
-							<form:select path="insuranceProvidersAccepted" class="form--section-input selection" onchange="toggleInsurance()">
-								<form:options items="${insuranceProviders}"/>
-							</form:select>
+							<div class="multi--select form--section-input">
+								<div class="select--element">
+									<select class="selection">
+										<option disabled="disabled" selected="selected">Select All That Apply
+									</select>
+									<div class="overSelect"></div>
+								</div>
+								<div class="checkboxes hidden">						
+									<form:checkboxes items="${insuranceProviders}" path="insuranceProvidersAccepted"/>
+								</div>
+							</div>
 						</div>
 						<div class="form--section">
 							<button class="btn--accent create">Create Provider Profile</button>
