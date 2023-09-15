@@ -290,6 +290,11 @@ h2 {
 	align-items: flex-start;
 }
 
+.multi--select {
+	position: relative;
+	flex: 1.5;
+}
+
 .form--section-input.selection {
 	
 	max-width: 61%;
@@ -315,6 +320,11 @@ h2 {
 .checkboxes {
 	display: flex;
 	flex-direction: column;
+	position: absolute;
+	width: 100%;
+	background: white;
+	padding: 0.5em 0;
+	border: 1px solid var(--main-col);
 }
 
 .checkboxes.visible {
@@ -333,14 +343,28 @@ h2 {
 	transition: none;
 }
 
+.checkboxes.hidden > span {
+	display: block;
+	max-height: 0px;
+	opacity: 0;
+	transition: max-height 600ms 0ms, opacity 400ms 0ms;
+	z-index: -1;
+	margin: 0;
+	padding: 0;
+}
+
 .checkboxes > span {
 	display: flex;
 	gap: 0.5em;
-	padding-left: 0.5em;
+	padding: 0.5em;
 }
 
 .checkboxes > span:hover {
 	background: var(--secondary-col);
+}
+
+.states--checkboxes {
+	z-index: 10;
 }
 
 /* UPDATE PROFILE SECTION */

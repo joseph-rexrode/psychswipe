@@ -81,20 +81,28 @@
 						</div>
 						<div class="form--section">
 							<form:label path="statesLicensedIn" class="form--section-label">States Licensed In</form:label>
-							<form:select path="statesLicensedIn" class="form--section-input" id="states">
-								<form:options items="${states}" class="stateOption"/>
-							</form:select>
-						</div>
-						<div class="form--section">
-							<form:label path="insuranceProvidersAccepted" class="form--section-label">Insurance Providers Accepted</form:label>
-							<div class="multi--select form--section-input">
-								<div class="select--element">
+							<div class="multi--select">
+								<div class="select--element form--section-input states--select">
 									<select class="selection">
 										<option disabled="disabled" selected="selected">Select All That Apply
 									</select>
 									<div class="overSelect"></div>
 								</div>
-								<div class="checkboxes hidden">						
+								<div class="checkboxes hidden states--checkboxes">						
+									<form:checkboxes items="${states}" path="statesLicensedIn"/>
+								</div>
+							</div>
+						</div>
+						<div class="form--section">
+							<form:label path="insuranceProvidersAccepted" class="form--section-label">Insurance Providers Accepted</form:label>
+							<div class="multi--select">
+								<div class="select--element form--section-input ins--select">
+									<select class="selection">
+										<option disabled="disabled" selected="selected">Select All That Apply
+									</select>
+									<div class="overSelect"></div>
+								</div>
+								<div class="checkboxes hidden ins--checkboxes">						
 									<form:checkboxes items="${insuranceProviders}" path="insuranceProvidersAccepted"/>
 								</div>
 							</div>
