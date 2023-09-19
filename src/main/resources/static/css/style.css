@@ -73,9 +73,7 @@ h2 {
 
 @media screen and (min-width: 850px) {
 	.main--header {
-		position: absolute;
-		top: -30px;
-		left: 5px;
+		
 	}
 }
 
@@ -468,8 +466,7 @@ h2 {
 /* SWIPING CARDS  */
 
 .card--container {
-	width: 360px;
-	max-width: 95%;
+	width: 95%;
 	height: 450px;
 	display: flex;
 	flex-direction: column;
@@ -479,4 +476,17 @@ h2 {
 
 .card.swipeCard {
 	align-self: center;
+	transition: transform 400ms, align-self 300ms;
+	display: flex;
+	flex-direction: column;
+}
+
+.swipeCard--actions {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 2em;
+}
+
+.swipeCard--profile {
+	height: 80%;
 }
