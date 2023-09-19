@@ -6,10 +6,11 @@ cards.forEach((card) => {
 })
 
 function dragCard(c) {
-	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, originX = 0, originY = 0;
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, originX = 0
 	
 	c.onmousedown = dragMouseDown
 	
+	// defines buttons for this specific card
 	let passButton = c.querySelector(".btn--pass");
 	let matchButton = c.querySelector(".btn--match");
 	
@@ -25,12 +26,10 @@ function dragCard(c) {
 		e = e || window.event;
 		e.preventDefault();
 		
+		// set originX value to calculate opacity changes
 		originX = e.clientX;
-		originY = e.clientY;
 		
-		console.log(originX + ", " + originY);
-		console.log(pos1);
-		
+		// set starting points
 		pos3 = e.clientX;
 		pos4 = e.clientY;
 		
@@ -42,10 +41,14 @@ function dragCard(c) {
 		e = e || window.event;
 		e.preventDefault();
 		
+		// sets pixel difference on mouse move
 		pos1 = pos3 - e.clientX;
 		pos2 = pos4 - e.clientY;
+		
+		// sets current point
 		pos3 = e.clientX;
 		pos4 = e.clientY;
+		
 		
 		if (pos3 - originX >= 100) {
 			c.style.transform = "rotate(20deg)";
@@ -59,10 +62,12 @@ function dragCard(c) {
 			c.style.transform = "none";
 		}
 		
+		// measure opacity based on distance from origin traveled
 		var frOpacity = Math.abs(pos3 - originX) / 100;
 		
 		let cardOpacity = (frOpacity >= 0.8) ? 0.6 : 1 - (frOpacity / 2);
 
+		// change stylings to match dragging change
 		c.style.opacity = cardOpacity;
 		c.style.position = "absolute";
 		c.style.top = (c.offsetTop - pos2) + "px";
@@ -71,6 +76,8 @@ function dragCard(c) {
 	
 	function closeDragCard() {
 		
+		// change stylings to match mouse up change
+		// need static position to allow for align-self properties
 		c.style.position = "static";
 		c.style.top = "auto";
 		c.style.left = "auto";
