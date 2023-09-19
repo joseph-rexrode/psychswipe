@@ -481,6 +481,11 @@ h2 {
 	flex-direction: column;
 }
 
+.card.swipeCard:last-of-type {
+	max-height: 0;
+	opacity: 0;
+}
+
 .swipeCard--actions {
 	display: flex;
 	justify-content: space-between;

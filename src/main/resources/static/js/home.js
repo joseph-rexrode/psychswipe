@@ -1,6 +1,5 @@
 var cards = document.querySelectorAll(".card.swipeCard");
 
-
 cards.forEach((card) => {
 	dragCard(card);
 })
@@ -102,3 +101,15 @@ function dragCard(c) {
 		document.onmousemove = null;
 	}
 }
+
+// need to reference jsp to get list of all providers
+	// this will change later to reference algorithm that matches 
+	// based on preferences
+// first render should have two provider cards, one shown 
+	// and one hidden behind (pos absolute)
+// when shown card is pushed to either side and mouseup occurs
+	// transition opacity to 0 slowly
+	// append provider info to matched section if matched
+	// then remove that element from innerhtml 
+	// then appendChild to cardContainer to create new second card
+	// previous "second" card is now top card and inherits those stylings
