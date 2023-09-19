@@ -25,11 +25,17 @@
 			<h1><span class="psych">Psych</span><span class="swipe">Swipe</span></h1>
 		</div>
 		
-		<div class="main">		
-			<h1>
-				Hello<c:if test="${user.getFirstName() != null}">, ${user.getFirstName()}</c:if>
-			</h1>
-			<h2 class="subtitle">Patient</h2>
+		<div class="main">
+			<div class="main--header">
+				<h1>
+					Hello<c:if test="${user.getFirstName() != null}">, ${user.getFirstName()}</c:if>
+				</h1>
+				<h2 class="subtitle">Patient</h2>
+			</div>		
+			
+			<div class="card--container">			
+				<div class="card swipeCard"></div>
+			</div>
 		</div>
 				
 		<div class="footer--nav">
@@ -47,6 +53,6 @@
 			</a>
 		</div>
 	</div>
-	<script src="/js/script.js"></script>
+	<script src="/js/home.js"></script>
 </body>
 </html>
