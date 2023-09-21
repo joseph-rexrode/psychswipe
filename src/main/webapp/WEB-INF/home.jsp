@@ -47,7 +47,7 @@
 						</button>
 					</div>
 				</div>
-				<div class="card swipeCard">
+				<div class="card secondCard">
 					<div class="swipeCard--profile">
 						
 					</div>

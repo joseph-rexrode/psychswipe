@@ -71,12 +71,6 @@ h2 {
 	position: relative;
 }
 
-@media screen and (min-width: 850px) {
-	.main--header {
-		
-	}
-}
-
 .header {
 	display: flex;
 	align-items: center;
@@ -165,6 +159,7 @@ h2 {
 	align-items: center;
 	justify-content: space-evenly;
 	padding: 0.5em 0;
+	z-index: 2;
 }
 
 .footer--nav > a {
@@ -479,11 +474,12 @@ h2 {
 	transition: transform 400ms, align-self 300ms;
 	display: flex;
 	flex-direction: column;
+	z-index: 1;
 }
 
-.card.swipeCard:last-of-type {
-	max-height: 0;
-	opacity: 0;
+.secondCard {
+	position: absolute;
+	z-index: 0;
 }
 
 .swipeCard--actions {
