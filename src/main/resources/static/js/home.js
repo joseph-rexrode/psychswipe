@@ -15,13 +15,29 @@ function dragCard(c) {
 	let passButton = c.querySelector(".btn--pass");
 	let matchButton = c.querySelector(".btn--match");
 	
-	passButton.addEventListener("click", function() {
-		console.log("Pass :(");
-	})
+	passButton.addEventListener("click", pass);
 	
-	matchButton.addEventListener("click", function() {
-		console.log("Match :)");
-	})
+	matchButton.addEventListener("click", match);
+	
+	function pass() {
+		c.style.transform = "translateX(-100%) rotate(-20deg)";
+		c.style.opacity = "0";
+			setTimeout(() => {
+				c.remove()
+				setTopCards();
+				dragCard(swipeCard);
+			}, 500);
+	}
+	
+	function match() {
+		c.style.transform = "translateX(100%) rotate(20deg)";
+		c.style.opacity = "0";
+			setTimeout(() => {
+				c.remove()
+				setTopCards();
+				dragCard(swipeCard);
+			}, 500);
+	}
 
 	function dragMouseDown(e) {
 		e = e || window.event;
@@ -86,30 +102,16 @@ function dragCard(c) {
 		if (pos3 - originX >= 100) {
 			c.style.alignSelf = "flex-end";
 			matchButton.click();
-			c.style.opacity = "0";
-			setTimeout(() => {
-				c.remove()
-				setTopCards();
-				dragCard(swipeCard);
-			}, 500);
-
 		}
 		else if (originX - pos3 > 100) {
 			c.style.alignSelf = "flex-start";
 			passButton.click();
-			c.style.opacity = "0";
-			setTimeout(() => {
-				c.remove()
-				setTopCards();
-				dragCard(swipeCard);
-			}, 500);
 		}
 		
 		else {
 			c.style.alignSelf = "center";
 			c.style.opacity = "1";
 		}
-		
 		
 		document.onmouseup = null;
 		document.onmousemove = null;

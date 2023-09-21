@@ -472,9 +472,10 @@ h2 {
 
 .card.card--home.swipeCard {
 	align-self: center;
-	transition: transform 400ms, align-self 300ms, opacity 500ms;
+	transition: transform 400ms, opacity 500ms;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	z-index: 1;
 	opacity: 1;
 }
@@ -495,6 +496,7 @@ h2 {
 	display: flex;
 	justify-content: space-between;
 	padding: 0 2em;
+	height: 20%;
 }
 
 .swipeCard--profile {
@@ -502,7 +504,10 @@ h2 {
 }
 
 .swipeCard--pfp {
-	background: lightgrey;
+	background-image: url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -511,5 +516,6 @@ h2 {
 
 .swipeCard--pfp > h2 {
 	padding: 0.5em 0.75em;
-	background: rgba(0,0,0,0.3);
+	background: rgba(184,184,184,0.3);
+	color: white;
 }
