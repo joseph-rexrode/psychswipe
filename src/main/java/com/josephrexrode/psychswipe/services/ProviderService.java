@@ -33,5 +33,10 @@ public class ProviderService {
 			User u = uRepo.findById(id).orElse(null);
 			
 			return pRepo.findByUser(u).orElse(null);
+			
+		}
+		
+		public Iterable<Provider> findAllProviders() {
+			return pRepo.findAll();
 		}
 }

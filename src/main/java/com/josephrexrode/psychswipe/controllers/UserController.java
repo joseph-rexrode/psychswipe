@@ -142,6 +142,8 @@ public class UserController {
 		
 		// Either patient profile created, or both profiles created
 		
+		model.addAttribute("allProviders", prService.findAllProviders());
+		
 		return "/home.jsp";
 	}
 	

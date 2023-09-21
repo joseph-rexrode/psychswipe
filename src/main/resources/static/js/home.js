@@ -1,8 +1,10 @@
-var cards = document.querySelectorAll(".card.swipeCard");
+var cards = document.querySelectorAll(".card--home");
+const cardParent = cards[0].parentNode;
+var swipeCard;
 
-cards.forEach((card) => {
-	dragCard(card);
-})
+setTopCards();
+
+dragCard(swipeCard);
 
 function dragCard(c) {
 	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, originX = 0
@@ -24,7 +26,7 @@ function dragCard(c) {
 	function dragMouseDown(e) {
 		e = e || window.event;
 		e.preventDefault();
-		
+				
 		// set originX value to calculate opacity changes
 		originX = e.clientX;
 		
@@ -84,11 +86,23 @@ function dragCard(c) {
 		if (pos3 - originX >= 100) {
 			c.style.alignSelf = "flex-end";
 			matchButton.click();
+			c.style.opacity = "0";
+			setTimeout(() => {
+				c.remove()
+				setTopCards();
+				dragCard(swipeCard);
+			}, 500);
 
 		}
 		else if (originX - pos3 > 100) {
 			c.style.alignSelf = "flex-start";
 			passButton.click();
+			c.style.opacity = "0";
+			setTimeout(() => {
+				c.remove()
+				setTopCards();
+				dragCard(swipeCard);
+			}, 500);
 		}
 		
 		else {
@@ -99,6 +113,22 @@ function dragCard(c) {
 		
 		document.onmouseup = null;
 		document.onmousemove = null;
+	}
+}
+
+function setTopCards() {
+	console.log(cardParent.firstElementChild);
+	let topCard = cardParent.firstElementChild;
+	
+	if (topCard != null) {
+		
+		topCard.classList.add("swipeCard");
+		topCard.classList.remove("secondCard");
+		
+		if (topCard.nextElementSibling != null) {		
+			topCard.nextElementSibling.classList.add("secondCard");
+		}
+		swipeCard = document.querySelector(".card.card--home.swipeCard");
 	}
 }
 
