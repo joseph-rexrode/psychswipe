@@ -1,11 +1,16 @@
 package com.josephrexrode.psychswipe.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,6 +25,13 @@ public class Patient {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+			name = "matches",
+			joinColumns = @JoinColumn(name = "patient_id"),
+			inverseJoinColumns = @JoinColumn(name = "provider_id"))
+	private List<Provider> providerMatches;
 	
 	private String insuranceProvider;
 	
@@ -77,5 +89,13 @@ public class Patient {
 
 	public void setStateOfResidence(String stateOfResidence) {
 		this.stateOfResidence = stateOfResidence;
+	}
+
+	public List<Provider> getProviderMatches() {
+		return providerMatches;
+	}
+
+	public void setProviderMatches(List<Provider> providerMatches) {
+		this.providerMatches = providerMatches;
 	}
 }
