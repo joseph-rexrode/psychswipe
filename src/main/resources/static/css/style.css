@@ -499,6 +499,12 @@ h2 {
 	height: 20%;
 }
 
+.swipeCard--actions > * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .swipeCard--profile {
 	height: 80%;
 }

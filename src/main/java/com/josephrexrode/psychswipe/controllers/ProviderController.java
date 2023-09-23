@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.josephrexrode.psychswipe.models.Patient;
 import com.josephrexrode.psychswipe.models.Provider;
@@ -17,6 +19,7 @@ import com.josephrexrode.psychswipe.services.ProviderService;
 import com.josephrexrode.psychswipe.services.UserService;
 
 @Controller
+@RequestMapping("/provider")
 public class ProviderController {
 	
 	@Autowired
@@ -44,5 +47,13 @@ public class ProviderController {
 		
 		return "redirect:/home";
 		
+	}
+	
+	@GetMapping("/home")
+	public String providerHome(
+			Model model,
+			HttpSession session) {
+		
+		return "/home_provider.jsp";
 	}
 }

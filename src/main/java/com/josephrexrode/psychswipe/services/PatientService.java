@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.josephrexrode.psychswipe.models.Patient;
+import com.josephrexrode.psychswipe.models.Provider;
 import com.josephrexrode.psychswipe.models.User;
 import com.josephrexrode.psychswipe.repositories.PatientRepository;
 import com.josephrexrode.psychswipe.repositories.UserRepository;
@@ -34,6 +35,17 @@ public class PatientService {
 			User u = uRepo.findById(id).orElse(null);
 			
 			return pRepo.findByUser(u).orElse(null);
+		}
+		
+		// update 
+		
+		public Patient update(Patient p) {
+			return pRepo.save(p);
+		}
+		
+		public void addMatch(Patient p, Provider pr) {
+			p.getProviderMatches().add(pr);
+			update(p);
 		}
 		
 }

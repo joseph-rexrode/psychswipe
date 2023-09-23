@@ -137,14 +137,18 @@ public class UserController {
 		
 		else if (user.getPatient() == null) {
 			
-			return "/home_provider.jsp";
+			// redirect to /provider/home instead
+			
+			return "redirect:/provider/home";
 		}
 		
 		// Either patient profile created, or both profiles created
 		
+		// redirect to /patient/home instead
+		
 		model.addAttribute("allProviders", prService.findAllProviders());
 		
-		return "/home.jsp";
+		return "redirect:/patient/home";
 	}
 	
 	// UPDATE PROFILE //

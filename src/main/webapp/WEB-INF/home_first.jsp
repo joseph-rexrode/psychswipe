@@ -32,7 +32,7 @@
 			
 			<div class="card hidden" id="form--patient">
 				<div class="form">
-					<form:form action="/newPatient" method="POST" modelAttribute="newPatient">
+					<form:form action="/patient/newPatient" method="POST" modelAttribute="newPatient">
 						<div class="form--section">
 							<form:label path="stateOfResidence" class="form--section-label">State</form:label>
 							<form:select path="stateOfResidence" class="form--section-input">
@@ -70,7 +70,7 @@
 			
 			<div class="card hidden" id="form--provider">
 				<div class="form">
-					<form:form action="/newProvider" method="POST" modelAttribute="newProvider">
+					<form:form action="/provider/newProvider" method="POST" modelAttribute="newProvider">
 						<div class="form--section">
 							<form:label path="provideTelehealth" class="form--section-label">Do you offer telehealth services?</form:label>
 							<form:select path="provideTelehealth" class="form--section-input">
