@@ -34,7 +34,7 @@
 			</div>		
 			
 			<div class="card--container">
-				<c:forEach items="${allProviders}" var="provider">
+				<c:forEach items="${notMatches}" var="provider">
 					<div class="card card--home">
 						<div class="swipeCard--profile">
 							<div class="swipeCard--pfp">

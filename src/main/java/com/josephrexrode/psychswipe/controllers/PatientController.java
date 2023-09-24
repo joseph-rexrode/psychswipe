@@ -1,5 +1,7 @@
 package com.josephrexrode.psychswipe.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -61,7 +63,11 @@ public class PatientController {
 			Model model,
 			HttpSession session) {
 		
-		model.addAttribute("allProviders", prService.findAllProviders());
+		Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
+		
+		List<Provider> notMatches = prService.notPatientProviders(p);
+		
+		model.addAttribute("notMatches", notMatches);
 		
 		return "/home.jsp";
 	}

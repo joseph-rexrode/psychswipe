@@ -1,8 +1,11 @@
 package com.josephrexrode.psychswipe.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.josephrexrode.psychswipe.models.Patient;
 import com.josephrexrode.psychswipe.models.Provider;
 import com.josephrexrode.psychswipe.models.User;
 import com.josephrexrode.psychswipe.repositories.ProviderRepository;
@@ -38,5 +41,9 @@ public class ProviderService {
 		
 		public Iterable<Provider> findAllProviders() {
 			return pRepo.findAll();
+		}
+		
+		public List<Provider> notPatientProviders(Patient p) {
+			return pRepo.findByPatientMatchesNotContains(p);
 		}
 }
