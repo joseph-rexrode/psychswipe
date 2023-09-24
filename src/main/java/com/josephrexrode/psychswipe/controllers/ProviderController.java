@@ -54,6 +54,6 @@ public class ProviderController {
 			Model model,
 			HttpSession session) {
 		
-		return "/home_provider.jsp";
+		return "/providers/home.jsp";
 	}
 }

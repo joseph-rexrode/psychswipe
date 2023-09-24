@@ -69,7 +69,7 @@ public class PatientController {
 		
 		model.addAttribute("notMatches", notMatches);
 		
-		return "/home.jsp";
+		return "/patients/home.jsp";
 	}
 	
 	@PutMapping("/{user_id}/match")
@@ -98,6 +98,6 @@ public class PatientController {
 	
 	model.addAttribute("matches", pService.findMatches(p));
 	
-	return "/matches.jsp";
+	return "/patients/matches.jsp";
 	}
 }
