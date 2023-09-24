@@ -198,20 +198,6 @@ public class UserController {
 		return "redirect:/profile";
 	}
 	
-	// MATCHES //
-	
-	@GetMapping("/matches")
-	public String matches(
-			Model model,
-			HttpSession session) {
-		
-		if (session.getAttribute("loggedUser") == null) {
-			return "redirect:/";
-		}
-		
-		return "/matches.jsp";
-	}
-	
 	// LOGOUT //
 	
 	@GetMapping("/logout")

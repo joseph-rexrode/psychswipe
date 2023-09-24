@@ -82,7 +82,22 @@ public class PatientController {
 		
 		pService.addMatch(p, provider);
 		
-		return "redirect:/matches";
+		return "redirect:/patient/matches";
 	}
 	
+	@GetMapping("/matches")
+	public String seeMatches(
+			Model model,
+			HttpSession session) {
+	
+	if (session.getAttribute("loggedUser") == null) {
+		return "redirect:/";
+	}
+	
+	Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
+	
+	model.addAttribute("matches", pService.findMatches(p));
+	
+	return "/matches.jsp";
+	}
 }

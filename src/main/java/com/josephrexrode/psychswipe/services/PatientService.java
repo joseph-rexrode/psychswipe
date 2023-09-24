@@ -1,5 +1,7 @@
 package com.josephrexrode.psychswipe.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,10 @@ public class PatientService {
 			User u = uRepo.findById(id).orElse(null);
 			
 			return pRepo.findByUser(u).orElse(null);
+		}
+		
+		public List<Provider> findMatches(Patient p) {
+			return p.getProviderMatches();
 		}
 		
 		// update 
