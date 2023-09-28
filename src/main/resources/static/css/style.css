@@ -20,6 +20,7 @@
 	--secondary-col: #D8D8F6;
 	--accent-col: #978897;
 	--text-dark: #494850;
+	--accent-warning: #C03221;
 	--ff-rubik: "Rubik";
 }
 
@@ -221,14 +222,14 @@ h2 {
 .visible {
 	max-height: 1000px;
 	opacity: 1;
-	transition: max-height 600ms 0ms, opacity 400ms 0ms;
+	transition: max-height 600ms ease-in-out, opacity 400ms ease-in-out;
 }
 
 .hidden {
 	max-height: 0px;
 	opacity: 0;
-	transition: max-height 600ms 0ms, opacity 400ms 0ms;
-	z-index: -1;
+	transition: max-height 600ms ease-in-out, opacity 400ms ease-in-out;
+	z-index: 0;
 	margin: 0;
 	padding: 0;
 }
@@ -527,6 +528,9 @@ h2 {
 	color: white;
 }
 
+
+/* Matches screen */
+
 .main.rows {
 	justify-content: start;
 	min-height: 100%;
@@ -546,15 +550,15 @@ h2 {
 	cursor: pointer;
 	background-color: white;
 	border-bottom: 2px solid var(--secondary-col);
-	border-top: 2px solid var(--secondary-col);
 	transition: 200ms;
 }
 
-.row:not(.row:first-of-type) {
-	border-top: none;
+.row:last-of-type {
+	border-bottom: none;
 }
 
-.row:hover {
+.row:hover,
+.row.row--active {
 	background-color: var(--secondary-col);
 }
 
@@ -580,4 +584,30 @@ h2 {
 
 .pfp:hover {
 	border-radius: 10px;
+}
+
+svg.open {
+	rotate: 180deg;
+}
+
+.row--moreInfo {
+	height: 100px;
+	width: 100%;
+	background: linear-gradient(
+		to bottom,
+		var(--secondary-col),
+		white);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.btn--accent.btn--remove {
+	border-color: var(--accent-warning);
+	color: var(--accent-warning);
+}
+
+.btn--accent.btn--remove:hover {
+	background-color: var(--accent-warning);
+	color: white;
 }

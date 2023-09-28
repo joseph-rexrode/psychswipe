@@ -54,4 +54,9 @@ public class PatientService {
 			update(p);
 		}
 		
+		public void removeMatch(Patient p, Provider pr) {
+			p.getProviderMatches().remove(pr);
+			update(p);
+		}
+		
 }

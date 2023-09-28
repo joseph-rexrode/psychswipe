@@ -64,10 +64,12 @@ public class PatientController {
 			HttpSession session) {
 		
 		Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
+		User u = uService.findById((Long) session.getAttribute("loggedUser"));
 		
 		List<Provider> notMatches = prService.notPatientProviders(p);
 		
 		model.addAttribute("notMatches", notMatches);
+		model.addAttribute("user", u);
 		
 		return "/patients/home.jsp";
 	}
@@ -81,6 +83,20 @@ public class PatientController {
 		Patient p = pService.findByUserId(id);
 		
 		pService.addMatch(p, provider);
+		
+		return "redirect:/patient/matches";
+	}
+	
+	@PutMapping("/{user_id}/{provider_id}/unmatch")
+	public String unmatch(
+			@PathVariable("user_id") Long uid,
+			@PathVariable("provider_id") Long pid,
+			Model model) {
+		
+		Patient p = pService.findByUserId(uid);
+		Provider pr = prService.findById(pid);
+		
+		pService.removeMatch(p, pr);
 		
 		return "redirect:/patient/matches";
 	}

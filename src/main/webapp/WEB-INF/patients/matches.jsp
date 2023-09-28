@@ -31,6 +31,17 @@
 					<h3>${match.getUser().getFirstName()} ${match.getUser().getLastName()}</h3>
 					<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 9L14 14.1599C13.7429 14.4323 13.4329 14.6493 13.089 14.7976C12.7451 14.9459 12.3745 15.0225 12 15.0225C11.6255 15.0225 11.2549 14.9459 10.9109 14.7976C10.567 14.6493 10.2571 14.4323 10 14.1599L5 9" stroke="#494850" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
 				</div>
+				<div class="row--moreInfo hidden">
+					<div>
+						<p>Provides Telehealth? ${match.getProvideTelehealth()}</p>					
+					</div>
+					<div>
+						<form action="/patient/${loggedUser}/${match.getId()}/unmatch" method="POST">
+							<input type="hidden" name="_method" value="put"/>
+							<button class="btn--accent btn--remove">Remove Match?</button>
+						</form>
+					</div>
+				</div>
 			</c:forEach>
 		</div>
 				
@@ -49,6 +60,6 @@
 			</a>
 		</div>
 	</div>
-	<script src="/js/script.js"></script>
+	<script src="/js/matches.js"></script>
 </body>
 </html>
