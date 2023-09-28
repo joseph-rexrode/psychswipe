@@ -33,7 +33,12 @@
 				</div>
 				<div class="row--moreInfo hidden">
 					<div>
-						<p>Provides Telehealth? ${match.getProvideTelehealth()}</p>					
+						<p>Provides Telehealth?						
+							<c:choose>
+								<c:when test="${match.getProvideTelehealth()}"><b>Yes</b></c:when>
+								<c:otherwise><b>No</b></c:otherwise>
+							</c:choose>				
+						</p>	
 					</div>
 					<div>
 						<form action="/patient/${loggedUser}/${match.getId()}/unmatch" method="POST">
