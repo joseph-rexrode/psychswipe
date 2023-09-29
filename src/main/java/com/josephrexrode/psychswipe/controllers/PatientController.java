@@ -116,4 +116,17 @@ public class PatientController {
 	
 	return "/patients/matches.jsp";
 	}
+	
+	@GetMapping("/matches/{provider_id}")
+	public String previewProvider(
+			@PathVariable("provider_id") Long pid,
+			Model model,
+			HttpSession session) {
+		
+		Provider pr = prService.findById(pid);
+		
+		model.addAttribute("provider", pr);
+		
+		return "/patients/providerPreview.jsp";
+	}
 }

@@ -575,7 +575,7 @@ h2 {
 	height: 50px;
 	border-radius: 100%;
 	cursor: pointer;
-	transition: 400ms ease-in-out;
+	transition: 300ms linear;
 }
 
 .row > svg {
@@ -595,7 +595,6 @@ svg.open {
 }
 
 .row--moreInfo {
-	height: 100px;
 	width: 100%;
 	background: linear-gradient(
 		to bottom,
@@ -603,12 +602,18 @@ svg.open {
 		white);
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
+	padding: 0 1em;
 }
 
 .btn--accent.btn--remove {
 	border-color: var(--accent-warning);
 	color: var(--accent-warning);
+	padding: 0.5em 1em;
+}
+
+.btn--accent.btn--profile {
+	padding: 0.5em 1em;
 }
 
 .btn--accent.btn--remove:hover {
