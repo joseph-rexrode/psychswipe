@@ -435,7 +435,7 @@ h2 {
 
 .form--update {
 	width: 80%;
-	overflow-y: scroll;
+	overflow-y: auto;
 	position: relative;
 	padding: 0 0 1em 0;
 }
