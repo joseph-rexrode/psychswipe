@@ -14,14 +14,17 @@ function toggleFormVisibility(el, other) {
 	var form = document.getElementById(el);
 	var otherForm = document.getElementById(other);
 	
-	if (otherForm.classList.contains("hidden")) {
-		if (form.classList.contains("hidden")) {
-			welcomeText.style.fontSize = "16pt";
-			welcomeText.style.transition = "400ms 0ms"
-		}
-		else {			
-			welcomeText.style.fontSize = "24pt";	
-			welcomeText.style.transition = "400ms 600ms"
+	
+	if (welcomeText) {
+		if (otherForm.classList.contains("hidden")) {
+			if (form.classList.contains("hidden")) {
+				welcomeText.style.fontSize = "16pt";
+				welcomeText.style.transition = "400ms 0ms"
+			}
+			else {			
+				welcomeText.style.fontSize = "24pt";	
+				welcomeText.style.transition = "400ms 600ms"
+			}
 		}
 	}
 

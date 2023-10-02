@@ -65,11 +65,92 @@
 			</div>
 			
 			<div class="profile--extra-actions">
-				<c:if test="${!provider}">
-					<button class="btn--accent btn--createNew">Create Provider Profile?</button>
-				</c:if>
 				<c:if test="${!patient}">
-					<button class="btn--accent btn--createNew">Create Patient Profile?</button>
+					<button class="btn--accent btn--createNew" id="btn--patient">Create Patient Profile?</button>
+					
+					<div class="card hidden" id="form--patient">
+						<div class="form">
+							<form:form action="/patient/newPatient" method="POST" modelAttribute="newPatient">
+								<div class="form--section">
+									<form:label path="stateOfResidence" class="form--section-label">State</form:label>
+									<form:select path="stateOfResidence" class="form--section-input">
+										<form:options items="${states}"/>
+									</form:select>
+								</div>
+								<div class="form--section">
+									<form:label path="openToTelehealth" class="form--section-label">Open to Telehealth?</form:label>
+									<form:select path="openToTelehealth" class="form--section-input">
+										<form:option value="Not Selected" selected="true" disabled="true"></form:option>
+										<form:option value="true">Yes</form:option>
+										<form:option value="false">No</form:option>
+									</form:select>
+								</div>
+								<div class="form--section">
+									<form:label path="insuranceProvider" class="form--section-label">Insurance Provider</form:label>
+									<form:select path="insuranceProvider" class="form--section-input selection">
+										<form:options items="${insuranceProviders}"/>
+									</form:select>
+								</div>
+								<form:label path="insuranceRequirement" class="form--section-column-label">Do you require that your potential provider accept insurance?</form:label>
+								<form:select path="insuranceRequirement" class="form--section-column-input">
+									<form:option value="Not Selected" selected="true" disabled="true"></form:option>
+									<form:option value="true">Yes</form:option>
+									<form:option value="false">No</form:option>
+								</form:select>
+								<div class="form--section">
+									<button class="btn--accent create">Create Patient Profile</button>
+								</div>
+							</form:form>
+						</div>
+					</div>
+				</c:if>
+				<c:if test="${!provider}">
+					<button class="btn--accent btn--createNew" id="btn--provider">Create Provider Profile?</button>
+					<div class="card hidden" id="form--provider">
+						<div class="form">
+							<form:form action="/provider/newProvider" method="POST" modelAttribute="newProvider">
+								<div class="form--section">
+									<form:label path="provideTelehealth" class="form--section-label">Do you offer telehealth services?</form:label>
+									<form:select path="provideTelehealth" class="form--section-input">
+										<form:option value="Not Selected" selected="true" disabled="true"></form:option>
+										<form:option value="true">Yes</form:option>
+										<form:option value="false">No</form:option>
+									</form:select>
+								</div>
+								<div class="form--section">
+									<form:label path="statesLicensedIn" class="form--section-label">States Licensed In</form:label>
+									<div class="multi--select">
+										<div class="select--element form--section-input states--select">
+											<select class="selection">
+												<option disabled="disabled" selected="selected">Select All That Apply
+											</select>
+											<div class="overSelect"></div>
+										</div>
+										<div class="checkboxes hidden states--checkboxes">						
+											<form:checkboxes items="${states}" path="statesLicensedIn"/>
+										</div>
+									</div>
+								</div>
+								<div class="form--section">
+									<form:label path="insuranceProvidersAccepted" class="form--section-label">Insurance Providers Accepted</form:label>
+									<div class="multi--select">
+										<div class="select--element form--section-input ins--select">
+											<select class="selection">
+												<option disabled="disabled" selected="selected">Select All That Apply
+											</select>
+											<div class="overSelect"></div>
+										</div>
+										<div class="checkboxes hidden ins--checkboxes">						
+											<form:checkboxes items="${insuranceProviders}" path="insuranceProvidersAccepted"/>
+										</div>
+									</div>
+								</div>
+								<div class="form--section">
+									<button class="btn--accent create">Create Provider Profile</button>
+								</div>
+							</form:form>
+						</div>
+					</div>
 				</c:if>
 			</div>			
 		</div>
@@ -91,5 +172,6 @@
 		</div>
 	</div>
 	<script src="/js/profile.js"></script>
+	<script src="/js/homeFirst.js"></script>
 </body>
 </html>

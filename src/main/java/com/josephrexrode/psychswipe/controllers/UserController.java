@@ -155,9 +155,11 @@ public class UserController {
 	
 	@GetMapping("/profile")
 	public String profile(
+			@ModelAttribute("newPatient") Patient newPatient,
+			@ModelAttribute("newProvider") Provider newProvider,
 			@ModelAttribute("user") User user,
 			Model model,
-			HttpSession session) {
+			HttpSession session) throws IOException {
 		
 		if (session.getAttribute("loggedUser") == null) {
 			return "redirect:/";
@@ -169,7 +171,15 @@ public class UserController {
 		
 		Provider p = prService.findByUserId(id);
 		Patient pa = paService.findByUserId(id);
+		Statics s = new Statics();
 		
+		List<String> states = s.getStates();
+		List<String> insuranceProviders = s.getInsuranceProviders();
+		
+		model.addAttribute("states", states);
+		model.addAttribute("insuranceProviders", insuranceProviders);
+		model.addAttribute("newPatient", new Patient());
+		model.addAttribute("newProvider", new Provider());		
 		model.addAttribute("provider", p != null ? true: false);
 		model.addAttribute("patient", pa != null ? true: false);
 		
