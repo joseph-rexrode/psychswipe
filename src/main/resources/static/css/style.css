@@ -244,18 +244,27 @@ h2 {
 	color: var(--text-dark);
 }
 
-.visible {
+.visible,
+.card.visible > *,
+.card.visible > * > *,
+.card.visible > * > * > * {
 	max-height: 1000px;
 	opacity: 1;
 	transition: max-height 600ms ease-in-out, opacity 400ms ease-in-out, z-index 500ms;
 	position: relative;
+}
+
+.visible {
 	z-index: 0;
 }
 
-.hidden {
+.hidden,
+.card.hidden > *,
+.card.hidden > * > *,
+.card.hidden > * > * > * {
 	max-height: 0px;
 	opacity: 0;
-	transition: max-height 600ms ease-in-out, opacity 400ms ease-in-out, z-index 500ms 1000ms;
+	transition: max-height 600ms ease-in-out, opacity 400ms ease-in-out, z-index 500ms 1500ms;
 	position: relative;
 	z-index: -1;
 	
@@ -263,13 +272,6 @@ h2 {
 	padding: 0;
 }
 
-.card.hidden > *,
-.card.hidden > * > *,
-.card.hidden > * > * > * {
-	margin: 0;
-	padding: 0;
-	max-height: 0px;
-}
 
 /* LOGIN & REG SPECIFIC */
 
@@ -361,6 +363,7 @@ h2 {
 		flex-direction: column;
 		
 		position: absolute;
+		z-index: 3;
 		width: 100%;
 		padding: 0.5em 0;
 		border: 1px solid var(--main-col);
