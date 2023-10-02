@@ -13,6 +13,7 @@
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
+	font-family: var(--ff-rubik);
 }
 
 :root {
@@ -24,12 +25,14 @@
 	--ff-rubik: "Rubik";
 }
 
-
 body {
 	margin: 0;
 	min-height: 100vh;
-	font-family: var(--ff-rubik);
 }
+
+
+/* GLOBALS - TYPOGRAPHY */
+
 
 h1 {
 	font-size: 22pt;
@@ -49,27 +52,34 @@ h2 {
 	opacity: 0.6;
 }
 
-.wrapper {
-	width: 100%;
-	min-height: 100vh;
-	position: relative;
+
+/* GLOBALS - CONTENT */
+
+.wrapper, .main {
 	display: flex;
 	flex-direction: column;
+	
+	width: 100%;
+	position: relative;
+}
+
+.wrapper {
 	justify-content: space-between;
+	
+	min-height: 100vh;
 	top: 0;
 	left: 0;
+	
 	color: var(--text-dark);
 	background: white;
 }
 
 .main {
-	width: 100%;
-	min-height: auto;
-	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	position: relative;
+	
+	width: 100%;
+	min-height: auto;
 }
 
 .header {
@@ -77,57 +87,68 @@ h2 {
 	align-items: center;
 	justify-content: center;
 	gap: 0.35em;
+	
 	position: relative;
 	top: 0px;
 	padding: 1.5em 0;
+	
 	background-color: var(--text-dark);
 }
 
 .psych {
-	background: var(--main-col);
-	color: white;
 	padding: 0.25em;
 	border-radius: 20px 0 20px 0;
+	
+	background: var(--main-col);
+	color: white;
 }
+	
 
 .swipe {
 	color: white;
 }
 
 .card {
-	width: 350px;
 	max-width: 90%;
+	width: 350px;
 	height: 435px;
+	
 	border-radius: 20px;
-	background-color: var(--main-col);
 	overflow: hidden;
+	
+	background-color: var(--main-col);
 }
 
-.form {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	padding-top: 1em;
-}
-
+.form,
 .form > * {
 	display: flex;
 	flex-direction: column;
 }
 
+.form {
+	height: 100%;
+	padding-top: 1em;
+}
+
 .form--section {
-	padding: 0.85em 1.5em;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 0.5em;
+
+	padding: 0.85em 1.5em;
+}
+
+.form--section.form--section-error {
+	padding: 0 1.5em;
 }
 
 .form--section-column-input {
 	padding: 0.5em;
 	border-radius: 5px;
-	background-color: white;
 	border: 1px solid var(--secondary-col);
+
+	background-color: white;
 }
 
 .form--section-column-input, 
@@ -141,36 +162,38 @@ h2 {
 
 .form--section-input {
 	flex: 1.5;
+	
 	padding: 0.5em;
 	border-radius: 5px;
-	background-color: white;
 	border: 1px solid var(--secondary-col);
 	overflow: hidden;
-}
 
-.form > * > .form--section-error {
-	padding: 0em;
+	background-color: white;
 }
 
 .footer--nav {
-	position: sticky;
-	bottom: 0;
-	width: 100%;
-	background: var(--text-dark);
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+	
+	width: 100%;
+	position: sticky;
+	bottom: 0;
 	padding: 0.5em 0;
 	z-index: 2;
+
+	background: var(--text-dark);
 }
 
 .footer--nav > a {
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	
 	transition: 200ms;
 }
 
@@ -191,18 +214,20 @@ h2 {
 .btn--accent {
 	margin-top: 1em;
 	padding: 1em 2em;
-	background: white;
 	border: 3px solid var(--main-col);
 	border-radius: 15px 2px 15px 2px;
+	
+	background: white;
 	cursor: pointer;
 	transition: 300ms;
 }
 
 .btn--accent:hover {
+	box-shadow: -0.3em 0em 0.7em -0.2em black;
+	
 	background: var(--main-col);
 	color: white;
 	transform: translateY(-3px);
-	box-shadow: -0.3em 0em 0.7em -0.2em black;
 }
 
 .btn--accent:active {
@@ -233,6 +258,7 @@ h2 {
 	transition: max-height 600ms ease-in-out, opacity 400ms ease-in-out, z-index 500ms 1000ms;
 	position: relative;
 	z-index: -1;
+	
 	margin: 0;
 	padding: 0;
 }
@@ -253,22 +279,21 @@ h2 {
 }
 
 .login, .register {
-	position: absolute;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	position: absolute;
 	padding: 1.5em;
 }
 
 .login {
 	z-index: 2;
-	
 }
 
 .register {
 	z-index: 1;
 }
-
 
 .btn--register {
 	margin-top: 0em;
@@ -285,16 +310,18 @@ h2 {
 }
 
 .switch {
-	align-self: flex-end;
 	display: flex;
 	align-items: center;
 	gap: 0.5em;
+	align-self: flex-end;
+
 	color: var(--font-dark);
 	cursor: pointer;
 }
 
 
 /* HOME SCREEN - FIRST VISIT */
+
 
 #form--patient, #form--provider {
 	margin-top: 1em;
@@ -304,82 +331,84 @@ h2 {
 	align-items: flex-start;
 }
 
-.multi--select {
-	position: relative;
-	flex: 1.5;
-}
+	/* All indented CSS below is literally just for the multi select dropdown */
 
-.form--section-input.selection {
+	.multi--select {
+		position: relative;
+		flex: 1.5;
+	}
 	
-	max-width: 61%;
-}
-
-.select--element {
-	position: relative;
-	width: 100%;
-}
-
-.select--element > select {
-	width: 100%;
-}
-
-.overSelect {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-}
-
-.checkboxes {
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	width: 100%;
-	background: white;
-	padding: 0.5em 0;
-	border: 1px solid var(--main-col);
-}
-
-.checkboxes.visible {
-	max-height: 100px;
-	overflow: scroll;
-	opacity: 1;
-	transition: max-height 300ms 0ms, opacity 300ms 0ms;
-}
-
-.checkboxes.hidden {
-	max-height: 0px;
-	overflow: hidden;
-	opacity: 0;
-	margin: 0;
-	padding: 0;
-	transition: none;
-}
-
-.checkboxes.hidden > span {
-	display: block;
-	max-height: 0px;
-	opacity: 0;
-	transition: max-height 600ms 0ms, opacity 400ms 0ms;
-	z-index: -1;
-	margin: 0;
-	padding: 0;
-}
-
-.checkboxes > span {
-	display: flex;
-	gap: 0.5em;
-	padding: 0.5em;
-}
-
-.checkboxes > span:hover {
-	background: var(--secondary-col);
-}
-
-.states--checkboxes {
-	z-index: 10;
-}
+	.form--section-input.selection {
+		max-width: 61%;
+	}
+	
+	.select--element {
+		position: relative;
+		width: 100%;
+	}
+	
+	.select--element > select {
+		width: 100%;
+	}
+	
+	.overSelect {
+		position: absolute;
+		inset: 0 0 0 0;
+	}
+	
+	.checkboxes {
+		display: flex;
+		flex-direction: column;
+		
+		position: absolute;
+		width: 100%;
+		padding: 0.5em 0;
+		border: 1px solid var(--main-col);
+		
+		background: white;
+	}
+	
+	.checkboxes.visible {
+		max-height: 100px;
+		overflow: auto;
+		opacity: 1;
+		transition: max-height 300ms 0ms, opacity 300ms 0ms;
+	}
+	
+	.checkboxes.hidden {
+		max-height: 0px;
+		overflow: hidden;
+		opacity: 0;
+		margin: 0;
+		padding: 0;
+		transition: none;
+	}
+	
+	.checkboxes.hidden > span {
+		display: block;
+		
+		max-height: 0px;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
+		
+		transition: max-height 600ms 0ms, opacity 400ms 0ms;
+		z-index: -1;
+	}
+	
+	.checkboxes > span {
+		display: flex;
+		gap: 0.5em;
+		padding: 0.5em;
+	}
+	
+	.checkboxes > span:hover {
+		background: var(--secondary-col);
+	}
+	
+	.states--checkboxes {
+		z-index: 10;
+	}
 
 /* HOME SCREEN - PROVIDER */
 
@@ -397,13 +426,15 @@ h2 {
 }
 
 .profile--avatar {
-	width: 150px;
-	height: 150px;
-	background: var(--main-col);
-	border-radius: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	
+	width: 150px;
+	height: 150px;
+	border-radius: 100%;
+
+	background: var(--main-col);
 	scale: 1;
 	transition: 300ms;
 	transition-delay: 500ms;
@@ -412,7 +443,6 @@ h2 {
 .profile--avatar-mini {
 	transform: scale(0.5) translateY(50px);
 	transition-delay: 0ms;
-	
 }
 
 .profile--extra-actions {
@@ -460,27 +490,29 @@ h2 {
 }
 
 
-
-
-
-
 /* SWIPING CARDS  */
 
+.swipeCard--actions > *,
 .card--container {
-	width: 95%;
-	height: 450px;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
+.card--container {
+	flex-direction: column;
+
+	width: 95%;
+	height: 450px;
+}
+
 .card.card--home.swipeCard {
-	align-self: center;
-	transition: transform 400ms, opacity 500ms, translate 400ms;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-self: center;
+	
+	transition: transform 400ms, opacity 500ms, translate 400ms;
 	z-index: 1;
 	opacity: 1;
 }
@@ -501,14 +533,9 @@ h2 {
 .swipeCard--actions {
 	display: flex;
 	justify-content: space-between;
+	
 	padding: 0 2em;
 	height: 20%;
-}
-
-.swipeCard--actions > * {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 .swipeCard--profile {
@@ -516,14 +543,12 @@ h2 {
 }
 
 .swipeCard--pfp {
-	background-image: url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
+
+	height: 100%;	
+	background: center / cover no-repeat url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);
 }
 
 .swipeCard--pfp > h2 {
@@ -534,6 +559,7 @@ h2 {
 
 
 /* Matches screen */
+
 
 .main.rows {
 	justify-content: start;
@@ -549,11 +575,13 @@ h2 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	
 	padding: 1em;
 	width: 100%;
-	cursor: pointer;
-	background-color: white;
 	border-bottom: 2px solid var(--secondary-col);
+	
+	background-color: white;
+	cursor: pointer;
 	transition: 200ms;
 }
 
@@ -567,10 +595,7 @@ h2 {
 }
 
 .pfp {
-	background-image: url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+	background: center / cover no-repeat url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);
 	width: 50px;
 	height: 50px;
 	border-radius: 100%;
@@ -595,14 +620,12 @@ svg.open {
 }
 
 .row--moreInfo {
-	width: 100%;
-	background: linear-gradient(
-		to bottom,
-		var(--secondary-col),
-		white);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	width: 100%;
+	background: linear-gradient(to bottom, var(--secondary-col), white);
 	padding: 0 1em;
 }
 
