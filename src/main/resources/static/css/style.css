@@ -259,19 +259,26 @@ h2 {
 }
 
 .hidden,
+.card.hidden,
 .card.hidden > *,
 .card.hidden > * > *,
 .card.hidden > * > * > * {
 	max-height: 0px;
 	opacity: 0;
-	transition: max-height 600ms ease-in-out, opacity 400ms ease-in-out, z-index 500ms 1500ms;
+	transition: max-height 600ms ease-in-out, 
+				opacity 700ms ease-in-out, 
+				z-index 0ms 1500ms,
+				padding 500ms 1000ms,
+				margin 500ms 1000ms;
 	position: relative;
-	z-index: -1;
 	
 	margin: 0;
 	padding: 0;
 }
 
+.hidden {
+	z-index: -1;
+}
 
 /* LOGIN & REG SPECIFIC */
 
