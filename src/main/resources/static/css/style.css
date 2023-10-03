@@ -85,14 +85,19 @@ h2 {
 .header {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	gap: 0.35em;
 	
 	position: relative;
 	top: 0px;
-	padding: 1.5em 0;
+	padding: 1.5em 2em;
 	
 	background-color: var(--text-dark);
+	color: white;
+}
+
+.header.header__index {
+	justify-content: center;
 }
 
 .psych {
@@ -237,6 +242,7 @@ h2 {
 
 .btn--accent.create {
 	border: none;
+	margin-top: 0;
 }
 
 .btn--accent.create:hover {
@@ -605,7 +611,8 @@ h2 {
 	background-color: var(--secondary-col);
 }
 
-.pfp {
+.pfp,
+.profile--button {
 	background: center / cover no-repeat url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);
 	width: 50px;
 	height: 50px;
