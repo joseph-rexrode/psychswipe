@@ -25,6 +25,10 @@
 			<div class="profile--button"></div>
 		</div>
 		
+		<div class="sidebar" data-position="closed">
+			
+		</div>
+		
 		<div class="main">
 			<div class="card card--provider">			
 				<h1>
@@ -50,6 +54,6 @@
 			</a>
 		</div>
 	</div>
-	<script src="/js/script.js"></script>
+	<script src="/js/global.js"></script>
 </body>
 </html>

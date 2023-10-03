@@ -82,6 +82,24 @@ h2 {
 	min-height: auto;
 }
 
+.sidebar {
+	position: absolute;
+	right: 0;
+	height: 90%;
+	background-color: var(--main-col);
+	opacity: 0.8;
+	z-index: 10;
+	transition: 500ms ease-in-out;
+}
+
+.sidebar[data-position = "open"] {
+	width: 300px;
+}
+
+.sidebar[data-position = "closed"] {
+	width: 0;
+}
+
 .header {
 	display: flex;
 	align-items: center;
@@ -619,6 +637,11 @@ h2 {
 	border-radius: 100%;
 	cursor: pointer;
 	transition: 300ms linear;
+}
+
+.profile--button {
+	position: relative;
+	z-index: 11;
 }
 
 .row > svg {

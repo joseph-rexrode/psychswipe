@@ -24,6 +24,10 @@
 			<div class="profile--button"></div>
 		</div>
 		
+		<div class="sidebar" data-position="closed">
+			
+		</div>
+		
 		<div class="main rows">
 			<c:forEach items="${matches}" var="match">
 				<div class="row">
@@ -78,6 +82,7 @@
 			</a>
 		</div>
 	</div>
+	<script src="/js/global.js"></script>
 	<script src="/js/matches.js"></script>
 </body>
 </html>

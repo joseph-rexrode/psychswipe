@@ -24,6 +24,10 @@
 			<div class="profile--button"></div>
 		</div>
 		
+		<div class="sidebar" data-position="closed">
+			
+		</div>
+		
 		<div class="main">
 			<div class="profile">
 				<div class="profile--avatar">
@@ -49,5 +53,7 @@
 			</a>
 		</div>
 	</div>
+	
+	<script src="/js/global.js"></script>
 </body>
 </html>

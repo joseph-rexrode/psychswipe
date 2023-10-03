@@ -25,6 +25,10 @@
 			<h1><span class="psych">Psych</span><span class="swipe">Swipe</span></h1>
 			<div class="profile--button"></div>
 		</div>
+		
+		<div class="sidebar" data-position="closed">
+			
+		</div>
 				
 		<div class="main">
 			<h1 class="text-center welcome">Welcome! <br>Please choose an option below:</h1>
@@ -128,6 +132,7 @@
 			</a>
 		</div>
 	</div>
+	<script src="/js/global.js"></script>
 	<script src="/js/homeFirst.js"></script>
 </body>
 </html>

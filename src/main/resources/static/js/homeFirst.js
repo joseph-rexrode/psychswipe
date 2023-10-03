@@ -2,13 +2,28 @@ var patientButton = document.getElementById("btn--patient");
 var providerButton = document.getElementById("btn--provider");
 var welcomeText = document.querySelector(".welcome");
 
-var insSelect = document.querySelector(".ins--select");
-var insCheckboxes = document.querySelector(".ins--checkboxes");
-var statesSelect = document.querySelector(".states--select");
-var statesCheckboxes = document.querySelector(".states--checkboxes");
 
-patientButton.addEventListener("click", () => { toggleFormVisibility("form--patient", "form--provider"); });
-providerButton.addEventListener("click", () => { toggleFormVisibility("form--provider", "form--patient"); });
+if (patientButton) {	
+	patientButton.addEventListener("click", () => { toggleFormVisibility("form--patient", "form--provider"); });
+}
+if (providerButton) {	
+	let insSelect = document.querySelector(".ins--select");
+	let insCheckboxes = document.querySelector(".ins--checkboxes");
+	let statesCheckboxes = document.querySelector(".states--checkboxes");
+	let statesSelect = document.querySelector(".states--select");
+	
+	providerButton.addEventListener("click", () => { toggleFormVisibility("form--provider", "form--patient"); });
+	
+	insSelect.addEventListener("click", function() {
+		insCheckboxes.classList.toggle("hidden");
+		insCheckboxes.classList.toggle("visible");
+	})
+	
+	statesSelect.addEventListener("click", function() {
+		statesCheckboxes.classList.toggle("hidden");
+		statesCheckboxes.classList.toggle("visible");
+	})
+}
 
 function toggleFormVisibility(el, other) {
 	var form = document.getElementById(el);
@@ -38,13 +53,3 @@ function toggleFormVisibility(el, other) {
 	}
 }
 
-
-insSelect.addEventListener("click", function() {
-	insCheckboxes.classList.toggle("hidden");
-	insCheckboxes.classList.toggle("visible");
-})
-
-statesSelect.addEventListener("click", function() {
-	statesCheckboxes.classList.toggle("hidden");
-	statesCheckboxes.classList.toggle("visible");
-})
