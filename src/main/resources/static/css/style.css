@@ -90,6 +90,7 @@ h2 {
 	opacity: 0.8;
 	z-index: 10;
 	transition: 500ms ease-in-out;
+	padding-block: 7em;
 }
 
 .sidebar[data-position = "open"] {
@@ -98,6 +99,17 @@ h2 {
 
 .sidebar[data-position = "closed"] {
 	width: 0;
+}
+
+.sidebar[data-position = "closed"] > * {
+	display: none;
+}
+
+.sidebar--option {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0 0.5em;
 }
 
 .header {
@@ -683,4 +695,39 @@ svg.open {
 .btn--accent.btn--remove:hover {
 	background-color: var(--accent-warning);
 	color: white;
+}
+
+.btn--toggler {
+	transition: 300ms;
+	position: relative;
+    width: 50px;
+    height: 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 1em -0.2em;
+    background-color: var(--text-dark);
+}
+
+.btn--toggler.active {
+	background-color: var(--secondary-col);
+}
+
+.toggle--circle {
+	position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    transition: 300ms;
+    top: 2px;
+}
+
+.btn--toggler > .toggle--circle {
+    left: 3px;
+    background-color: var(--secondary-col);
+}
+
+.btn--toggler.active > .toggle--circle {
+	left: 31px;
+	background-color: var(--main-col);
 }

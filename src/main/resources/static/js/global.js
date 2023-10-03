@@ -1,4 +1,7 @@
+const toggleButtons = document.querySelectorAll(".btn--toggler");
+
 toggleProfileSidebar();
+toggleActive();
 
 function toggleProfileSidebar() {
 	let profileButton = document.querySelector(".profile--button");
@@ -17,4 +20,18 @@ function toggleProfileSidebar() {
 		}
 	})
 	
+}
+
+function delayForButtonTransition(url) {
+	setTimeout(function() {
+		window.location = url
+	}, 1000);
+}
+
+function toggleActive() {
+	toggleButtons.forEach(t => {
+		t.addEventListener("click", function() {
+			t.classList.toggle("active");
+		})
+	})
 }
