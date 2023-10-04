@@ -9,12 +9,14 @@ function toggleProfileSidebar() {
 	let main = document.querySelector(".main");
 	
 	profileButton.addEventListener("click", function() {
+		console.log(sidebar.getAttribute("data-position"));
 		sidebar.setAttribute("data-position", 
 			(sidebar.getAttribute("data-position") == "open") ?
 				"closed" : "open");
 	})
 	
 	main.addEventListener("click", function() {
+		console.log("main clicked");
 		if (sidebar.getAttribute("data-position") == "open") {
 			sidebar.setAttribute("data-position", "closed");
 		}

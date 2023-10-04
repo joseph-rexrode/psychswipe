@@ -1,5 +1,4 @@
 const rows = document.querySelectorAll(".row");
-toggleProfileSidebar();
 
 rows.forEach((row) => {
 	row.addEventListener("click", function() {

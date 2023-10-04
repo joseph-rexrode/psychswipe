@@ -29,9 +29,18 @@
 			<div class="sidebar--option">			
 				<p>Patient Profile</p>
 				<a href="javascript:delayForButtonTransition('/switch')">
-					<button class="btn--toggler">
-						<div class="toggle--circle"></div>
-					</button>
+					<c:choose>
+						<c:when test="${profile.toString().compareTo('patient') == 0}">						
+							<button class="btn--toggler">
+								<div class="toggle--circle"></div>
+							</button>
+						</c:when>
+						<c:otherwise>
+							<button class="btn--toggler active">
+								<div class="toggle--circle"></div>
+							</button>
+						</c:otherwise>
+					</c:choose>
 				</a>
 				<p>Provider Profile</p>
 			</div>
