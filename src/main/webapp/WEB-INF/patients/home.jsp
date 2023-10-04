@@ -28,7 +28,7 @@
 		<div class="sidebar" data-position="closed">
 			<div class="sidebar--option">			
 				<p>Patient Profile</p>
-				<a href="javascript:delayForButtonTransition('/provider/home')">
+				<a href="javascript:delayForButtonTransition('/switch')">
 					<button class="btn--toggler">
 						<div class="toggle--circle"></div>
 					</button>

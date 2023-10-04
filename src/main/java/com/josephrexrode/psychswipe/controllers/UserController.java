@@ -137,18 +137,28 @@ public class UserController {
 		
 		else if (user.getPatient() == null) {
 			
-			// redirect to /provider/home instead
-			
-			return "redirect:/provider/home";
+			session.setAttribute("profile", "provider");	
 		}
 		
 		// Either patient profile created, or both profiles created
+				
+		else {	
+			model.addAttribute("allProviders", prService.findAllProviders());
+			session.setAttribute("profile", "patient");
+		}
 		
-		// redirect to /patient/home instead
 		
-		model.addAttribute("allProviders", prService.findAllProviders());
+		return "redirect:/" + session.getAttribute("profile") + "/home";
+	}
+	
+	@GetMapping("/switch")
+	public String switchProfile(
+			Model model,
+			HttpSession session) {
 		
-		return "redirect:/patient/home";
+		session.setAttribute("profile", session.getAttribute("profile").toString().compareTo("patient") == 0 ? "provider" : "patient");
+		
+		return "redirect:/" + session.getAttribute("profile") + "/home";
 	}
 	
 	// UPDATE PROFILE //

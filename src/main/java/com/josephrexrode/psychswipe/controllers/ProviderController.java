@@ -54,6 +54,10 @@ public class ProviderController {
 			Model model,
 			HttpSession session) {
 		
+		if (session.getAttribute("profile").toString().compareTo("patient") == 0) {
+			return "redirect:/patient/home";
+		}
+		
 		return "/providers/home.jsp";
 	}
 }

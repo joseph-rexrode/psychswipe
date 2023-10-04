@@ -63,6 +63,10 @@ public class PatientController {
 			Model model,
 			HttpSession session) {
 		
+		if (session.getAttribute("profile").toString().compareTo("provider") == 0) {
+			return "redirect:/provider/home";
+		}
+		
 		Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
 		User u = uService.findById((Long) session.getAttribute("loggedUser"));
 		

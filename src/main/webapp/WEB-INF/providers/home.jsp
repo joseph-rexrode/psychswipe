@@ -26,7 +26,15 @@
 		</div>
 		
 		<div class="sidebar" data-position="closed">
-			
+			<div class="sidebar--option">			
+				<p>Patient Profile</p>
+				<a href="javascript:delayForButtonTransition('/switch')">
+					<button class="btn--toggler active">
+						<div class="toggle--circle"></div>
+					</button>
+				</a>
+				<p>Provider Profile</p>
+			</div>
 		</div>
 		
 		<div class="main">

@@ -87,7 +87,6 @@ h2 {
 	right: 0;
 	height: 90%;
 	background-color: var(--main-col);
-	opacity: 0.8;
 	z-index: 10;
 	transition: 500ms ease-in-out;
 	padding-block: 7em;
