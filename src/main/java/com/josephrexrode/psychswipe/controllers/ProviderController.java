@@ -35,6 +35,10 @@ public class ProviderController {
 			Model model,
 			HttpSession session) {
 		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
+		
 		if (result.hasErrors()) {
 			
 			model.addAttribute("newPatient", new Patient());
@@ -53,6 +57,10 @@ public class ProviderController {
 	public String providerHome(
 			Model model,
 			HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
 		
 		if (session.getAttribute("profile").toString().compareTo("patient") == 0) {
 			return "redirect:/patient/home";

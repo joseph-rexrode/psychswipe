@@ -44,6 +44,10 @@ public class PatientController {
 			Model model,
 			HttpSession session) {
 		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
+		
 		if (result.hasErrors()) {
 			
 			model.addAttribute("newProvider", new Provider());
@@ -62,6 +66,10 @@ public class PatientController {
 	public String patientHome(
 			Model model,
 			HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
 		
 		if (session.getAttribute("profile").toString().compareTo("provider") == 0) {
 			return "redirect:/provider/home";
@@ -82,7 +90,12 @@ public class PatientController {
 	public String match(
 			@PathVariable("user_id") Long id,
 			@RequestParam(name = "provider") Provider provider,
-			Model model) {
+			Model model,
+			HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
 		
 		Patient p = pService.findByUserId(id);
 		
@@ -95,7 +108,12 @@ public class PatientController {
 	public String unmatch(
 			@PathVariable("user_id") Long uid,
 			@PathVariable("provider_id") Long pid,
-			Model model) {
+			Model model,
+			HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
 		
 		Patient p = pService.findByUserId(uid);
 		Provider pr = prService.findById(pid);
@@ -110,15 +128,15 @@ public class PatientController {
 			Model model,
 			HttpSession session) {
 	
-	if (session.getAttribute("loggedUser") == null) {
-		return "redirect:/";
-	}
-	
-	Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
-	
-	model.addAttribute("matches", pService.findMatches(p));
-	
-	return "/patients/matches.jsp";
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
+		
+		Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
+		
+		model.addAttribute("matches", pService.findMatches(p));
+		
+		return "/patients/matches.jsp";
 	}
 	
 	@GetMapping("/matches/{provider_id}")
@@ -126,6 +144,10 @@ public class PatientController {
 			@PathVariable("provider_id") Long pid,
 			Model model,
 			HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
 		
 		Provider pr = prService.findById(pid);
 		
