@@ -640,6 +640,13 @@ h2 {
 	background-color: var(--secondary-col);
 }
 
+.row--moreInfo.hidden {
+	transition: max-height 600ms ease-in-out, 
+					opacity 400ms ease-in-out,
+					z-index 0ms 500ms;
+}
+
+
 .pfp,
 .profile--button {
 	background: center / cover no-repeat url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);

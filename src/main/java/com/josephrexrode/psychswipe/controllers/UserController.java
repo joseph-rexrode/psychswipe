@@ -145,6 +145,8 @@ public class UserController {
 		else {	
 			model.addAttribute("allProviders", prService.findAllProviders());
 			
+			// this assumes it's a log-in 
+			// rather than someone navigating to the home page while already logged in
 			if (session.getAttribute("profile") == null) {
 				session.setAttribute("profile", "patient");
 			}
