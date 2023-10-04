@@ -144,7 +144,10 @@ public class UserController {
 				
 		else {	
 			model.addAttribute("allProviders", prService.findAllProviders());
-			session.setAttribute("profile", "patient");
+			
+			if (session.getAttribute("profile") == null) {
+				session.setAttribute("profile", "patient");
+			}
 		}
 		
 		

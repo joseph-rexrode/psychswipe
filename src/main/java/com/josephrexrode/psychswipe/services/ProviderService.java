@@ -47,6 +47,13 @@ public class ProviderService {
 		}
 		
 		public List<Provider> notPatientProviders(Patient p) {
-			return pRepo.findByPatientMatchesNotContains(p);
+			
+			List<Provider> notMatches = pRepo.findByPatientMatchesNotContains(p);
+			
+			if (p.getUser().getProvider() != null) {
+				notMatches.remove(p.getUser().getProvider());
+			}
+			
+			return notMatches;
 		}
 }

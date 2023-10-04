@@ -35,11 +35,11 @@ body {
 
 
 h1 {
-	font-size: 22pt;
+	font-size: 20pt;
 }
 
 h2 {
-	font-size: 20pt;
+	font-size: 18pt;
 }
 
 .text-center {
@@ -90,18 +90,18 @@ h2 {
 	z-index: 10;
 	transition: 500ms ease-in-out;
 	padding-block: 7em;
-}
-
-.sidebar[data-position = "open"] {
 	width: 300px;
 }
 
-.sidebar[data-position = "closed"] {
-	width: 0;
+.sidebar[data-position = "open"] {
+	right: 0;
+	opacity: 1;
 }
 
+.sidebar[data-position = "closed"],
 .sidebar[data-position = "closed"] > * {
-	display: none;
+	right: -300px;
+	opacity: 0;
 }
 
 .sidebar--option {
