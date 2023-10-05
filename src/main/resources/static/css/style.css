@@ -269,14 +269,14 @@ h2 {
 	background: white;
 	cursor: pointer;
 	transition: 300ms;
+	box-shadow: 0em 0em 0.7em -0.4em black;
 }
 
 .btn--accent:hover {
-	box-shadow: -0.3em 0em 0.7em -0.2em black;
 	
 	background: var(--main-col);
 	color: white;
-	transform: translateY(-3px);
+	transform: translateY(-3px) translateX(-3px);
 }
 
 .btn--accent:active {
@@ -494,7 +494,7 @@ h2 {
 	height: 150px;
 	border-radius: 100%;
 
-	background: var(--main-col);
+	background: center / cover no-repeat url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80);
 	scale: 1;
 	transition: 300ms;
 	transition-delay: 500ms;

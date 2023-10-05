@@ -181,6 +181,8 @@ public class UserController {
 		Long id = ((User) session.getAttribute("loggedUser")).getId();
 		user = uService.findById(id);
 		
+		model.addAttribute("user", user);
+		
 		Provider p = prService.findByUserId(id);
 		Patient pa = paService.findByUserId(id);
 		Statics s = new Statics();
