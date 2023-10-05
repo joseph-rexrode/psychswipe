@@ -77,7 +77,7 @@
 						<a href="/patient/matches/${match.getId()}">
 							<button class="btn--accent btn--profile">Go to Profile</button>
 						</a>
-						<form action="/patient/${loggedUser}/${match.getId()}/unmatch" method="POST">
+						<form action="/patient/${loggedUser.getId()}/${match.getId()}/unmatch" method="POST">
 							<input type="hidden" name="_method" value="put"/>
 							<button class="btn--accent btn--remove">Remove Match?</button>
 						</form>
