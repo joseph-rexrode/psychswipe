@@ -45,7 +45,7 @@ public class ProviderController {
 			return "/home_first.jsp";
 		}
 		
-		User u = uService.findById((Long) session.getAttribute("loggedUser"));
+		User u = (User) session.getAttribute("loggedUser");
 		
 		pService.create(p, u);
 		

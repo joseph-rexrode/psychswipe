@@ -26,6 +26,7 @@
 		</div>
 		
 		<div class="sidebar" data-position="closed">
+			<h4 class="sidebar--heading">${loggedUser.getFirstName()} ${loggedUser.getLastName()}</h4>
 			<div class="sidebar--option">			
 				<p>Patient Profile</p>
 				<a href="javascript:delayForButtonTransition('/switch')">

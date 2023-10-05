@@ -75,13 +75,11 @@ public class PatientController {
 			return "redirect:/provider/home";
 		}
 		
-		Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
-		User u = uService.findById((Long) session.getAttribute("loggedUser"));
+		Patient p = pService.findByUserId(((User) session.getAttribute("loggedUser")).getId());
 		
 		List<Provider> notMatches = prService.notPatientProviders(p);
 		
 		model.addAttribute("notMatches", notMatches);
-		model.addAttribute("user", u);
 		
 		return "/patients/home.jsp";
 	}
@@ -132,7 +130,11 @@ public class PatientController {
 			return "redirect:/";
 		}
 		
-		Patient p = pService.findByUserId((Long) session.getAttribute("loggedUser"));
+		if (session.getAttribute("profile").toString().compareTo("provider") == 0) {
+			return "redirect:/provider/home";
+		}
+		
+		Patient p = pService.findByUserId(((User) session.getAttribute("loggedUser")).getId());
 		
 		model.addAttribute("matches", pService.findMatches(p));
 		
@@ -147,6 +149,10 @@ public class PatientController {
 		
 		if (session.getAttribute("loggedUser") == null) {
 			return "redirect:/";
+		}
+		
+		if (session.getAttribute("profile").toString().compareTo("provider") == 0) {
+			return "redirect:/provider/home";
 		}
 		
 		Provider pr = prService.findById(pid);

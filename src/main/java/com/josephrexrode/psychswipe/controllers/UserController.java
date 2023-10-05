@@ -66,7 +66,7 @@ public class UserController {
 			return "/index.jsp";
 		}
 		
-		session.setAttribute("loggedUser", user.getId());
+		session.setAttribute("loggedUser", user);
 		
 		
 		return "redirect:/home";
@@ -91,7 +91,7 @@ public class UserController {
 			return "/index.jsp";
 		}
 		
-		session.setAttribute("loggedUser", user.getId());
+		session.setAttribute("loggedUser", user);
 		
 		
 		return "redirect:/home";
@@ -112,10 +112,8 @@ public class UserController {
 		
 		model.addAttribute("loggedUser", session.getAttribute("loggedUser"));
 		
-		User user = uService.findById((Long) session.getAttribute("loggedUser"));
-		
-		model.addAttribute("user", user);
-		
+		User user = (User) session.getAttribute("loggedUser");
+				
 		// No patient or provider profiles created yet
 		
 		if (user.getPatient() == null && user.getProvider() == null) {	
@@ -180,9 +178,8 @@ public class UserController {
 			return "redirect:/";
 		}
 		
-		Long id = (Long) session.getAttribute("loggedUser");
+		Long id = ((User) session.getAttribute("loggedUser")).getId();
 		user = uService.findById(id);
-		model.addAttribute("user", user);
 		
 		Provider p = prService.findByUserId(id);
 		Patient pa = paService.findByUserId(id);
@@ -209,7 +206,7 @@ public class UserController {
 			BindingResult result,
 			HttpSession session) {
 			
-		User u = uService.findById((Long) session.getAttribute("loggedUser"));
+		User u = (User) session.getAttribute("loggedUser");
 		
 		if (result.hasErrors()) {
 			model.addAttribute("user", u);
