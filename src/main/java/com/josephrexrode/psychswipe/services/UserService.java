@@ -71,4 +71,8 @@ public class UserService {
 		
 		return uRepo.save(current);
 	}
+	
+	public User updateProfile(User u) {
+		return uRepo.save(u);
+	}
 }

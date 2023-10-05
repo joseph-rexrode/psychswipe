@@ -485,10 +485,16 @@ h2 {
 	gap: 0.7em;
 }
 
+.profile > img {
+	width: 100px;
+	height: 100px;
+}
+
 .profile--avatar {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 	
 	width: 150px;
 	height: 150px;
@@ -503,6 +509,36 @@ h2 {
 .profile--avatar-mini {
 	transform: scale(0.5) translateY(50px);
 	transition-delay: 0ms;
+}
+
+.profile--avatar-edit {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: var(--main-col);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.profile--avatar-edit-form {
+	position: absolute;
+	top: 0;
+	width: 300px;
+	height: 325px;
+	background: var(--secondary-col);
+	border-radius: 5px;
+	padding: 1em;
+	scale: 0;
+	transition: scale 500ms;
+}
+
+.close {
+	cursor: pointer;
+	background: none;
+	border: none;
 }
 
 .profile--extra-actions {

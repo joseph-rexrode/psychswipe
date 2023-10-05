@@ -32,6 +32,8 @@ public class User {
 	
 	private Integer age;
 	
+	private String profilePhoto;
+	
 	@OneToOne(mappedBy = "user")
 	private Provider provider;
 	
@@ -118,5 +120,20 @@ public class User {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public String getProfilePhoto() {
+		return profilePhoto;
+	}
+
+	public void setProfilePhoto(String profilePhoto) {
+		this.profilePhoto = profilePhoto;
+	}
+	
+	@Transient
+	public String getProfilePhotoImagePath() {
+		if (profilePhoto == null || id == null) return null;
+		
+		return "/user-profile-photo/" + id + "/" + profilePhoto;
 	}
 }

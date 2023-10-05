@@ -9,11 +9,14 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.josephrexrode.psychswipe.models.LoginUser;
 import com.josephrexrode.psychswipe.models.Patient;
@@ -23,6 +26,7 @@ import com.josephrexrode.psychswipe.services.PatientService;
 import com.josephrexrode.psychswipe.services.ProviderService;
 import com.josephrexrode.psychswipe.services.UserService;
 import com.josephrexrode.psychswipe.statics.Statics;
+import com.josephrexrode.psychswipe.utilities.FileUploadUtil;
 
 @Controller
 public class UserController {
@@ -220,6 +224,28 @@ public class UserController {
 		
 		
 		return "redirect:/profile";
+	}
+	
+	@PutMapping("/profile/update-profile-picture")
+	public String updateProfilePicture(
+			@RequestParam("image") MultipartFile multipartFile,
+			Model model,
+			HttpSession session) throws IOException {
+		
+		User u = (User) session.getAttribute("loggedUser");
+		
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		
+		u.setProfilePhoto(fileName);
+		
+		User savedU = uService.updateProfile(u);
+		
+		String uploadDirectory = "user-profile-photo/" + savedU.getId();
+		
+		FileUploadUtil.saveFile(uploadDirectory, fileName, multipartFile);
+		
+		return "redirect:/profile";
+		
 	}
 	
 	// LOGOUT //
