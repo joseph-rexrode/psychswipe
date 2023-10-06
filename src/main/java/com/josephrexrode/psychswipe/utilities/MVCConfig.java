@@ -20,8 +20,6 @@ public class MVCConfig implements WebMvcConfigurer {
 		Path uploadDirectory = Paths.get(directoryName);
 		String uploadPath = uploadDirectory.toFile().getAbsolutePath();
 		
-		System.out.println(uploadPath + "\n" + directoryName);
-		
 		if (directoryName.startsWith("../")) {
 			directoryName = directoryName.replace("../", "");
 		}

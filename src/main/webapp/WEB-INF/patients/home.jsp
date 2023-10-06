@@ -54,9 +54,18 @@
 				<c:forEach items="${notMatches}" var="provider">
 					<div class="card card--home">
 						<div class="swipeCard--profile">
-							<div class="swipeCard--pfp">
-								<h2>${provider.getUser().getFirstName()} ${provider.getUser().getLastName()}</h2>
-							</div>
+						<c:choose>
+							<c:when test="${provider.getUser().getProfilePhoto() != null}">
+								<div class="swipeCard--pfp" style="background: center / cover no-repeat url(${provider.getUser().getProfilePhotoImagePath()})">
+									<h2>${provider.getUser().getFirstName()} ${provider.getUser().getLastName()}</h2>
+								</div>
+							</c:when>
+							<c:otherwise>							
+								<div class="swipeCard--pfp">
+									<h2>${provider.getUser().getFirstName()} ${provider.getUser().getLastName()}</h2>
+								</div>
+							</c:otherwise>
+						</c:choose>
 						</div>
 						<div class="swipeCard--actions">
 							<button class="btn--pass">
