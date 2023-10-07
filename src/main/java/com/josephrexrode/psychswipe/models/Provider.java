@@ -26,7 +26,7 @@ public class Provider {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	
@@ -38,12 +38,12 @@ public class Provider {
 	private List<Patient> patientMatches;
 	
 	@ElementCollection(targetClass = String.class)
-	@CollectionTable(name = "insuranceProvidersAccepted", joinColumns = @JoinColumn(name = "user_id"))
+	@CollectionTable(name = "insuranceProvidersAccepted", joinColumns = @JoinColumn(name = "provider_id"))
 	@Column(name = "insuranceProviderAccepted", nullable = false)
 	private List<String> insuranceProvidersAccepted = new ArrayList<>();
 	
 	@ElementCollection(targetClass = String.class)
-	@CollectionTable(name = "statesLicensedIn", joinColumns = @JoinColumn(name = "user_id"))
+	@CollectionTable(name = "statesLicensedIn", joinColumns = @JoinColumn(name = "provider_id"))
 	@Column(name = "stateLicensedIn", nullable = false)
 	private List<String> statesLicensedIn = new ArrayList<>();
 	

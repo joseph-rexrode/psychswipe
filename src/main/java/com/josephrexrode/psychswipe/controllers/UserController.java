@@ -65,10 +65,11 @@ public class UserController {
 		
 		User user = uService.register(newUser, result);
 		
+		
 		if (user == null) {
 			model.addAttribute("newLogin", new LoginUser());
 			return "/index.jsp";
-		}
+		}		
 		
 		session.setAttribute("loggedUser", user);
 		
@@ -111,7 +112,7 @@ public class UserController {
 			HttpSession session) throws IOException {
 		
 		if (session.getAttribute("loggedUser") == null) {
-			return "redirect:/";
+			return "redirect:/logout";
 		}
 		
 		model.addAttribute("loggedUser", session.getAttribute("loggedUser"));
@@ -179,7 +180,7 @@ public class UserController {
 			HttpSession session) throws IOException {
 		
 		if (session.getAttribute("loggedUser") == null) {
-			return "redirect:/";
+			return "redirect:/logout";
 		}
 		
 		Long id = ((User) session.getAttribute("loggedUser")).getId();

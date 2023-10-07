@@ -22,5 +22,9 @@ public class FileUploadUtil {
 		} catch (IOException ioE) {
 			throw new IOException("Could not save image file: " + fileName, ioE);
 		}
+		
+		// for some reason getting an IOException 
+		// when account first tries to upload nothing as pfp
+		// can no longer upload anything to that acc
 	}
 }
