@@ -51,7 +51,14 @@
 		
 		<div class="main">
 			<div class="profile">
-				<div class="profile--avatar"></div>
+				<c:choose>
+					<c:when test="${provider.getUser().getProfilePhoto() != null}">
+						<div class="profile--avatar" style='background: center / cover no-repeat url(${provider.getUser().getProfilePhotoImagePath()});'></div>
+					</c:when>
+					<c:otherwise>
+						<div class="profile--avatar"></div>
+					</c:otherwise>
+				</c:choose>
 				<h1 class="profile--name">${provider.getUser().getFirstName()} ${provider.getUser().getLastName()}</h1>					
 			</div>
 		</div>
