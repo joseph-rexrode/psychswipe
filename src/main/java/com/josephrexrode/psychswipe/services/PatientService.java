@@ -24,11 +24,10 @@ public class PatientService {
 	
 		// create
 	
-		// check session status maybe???
 		public Patient create(Patient p, User u) {
 			
 			p.setUser(u);
-			
+			u.setPatient(p);
 			return pRepo.save(p);
 		}
 		

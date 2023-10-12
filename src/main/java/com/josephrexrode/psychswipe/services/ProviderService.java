@@ -27,6 +27,7 @@ public class ProviderService {
 	
 		public Provider create(Provider p, User u) {
 			p.setUser(u);
+			u.setProvider(p);
 			return pRepo.save(p);
 		}
 		

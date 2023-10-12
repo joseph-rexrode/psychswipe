@@ -22,7 +22,7 @@ public class Patient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne
+	@OneToOne()
 	@JoinColumn(name = "user_id")
 	private User user;
 	

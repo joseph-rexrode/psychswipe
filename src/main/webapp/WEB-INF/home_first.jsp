@@ -31,6 +31,8 @@
 		</div>
 				
 		<div class="main">
+			${profile}
+			${loggedUser.getProvider()}
 			<h1 class="text-center welcome">Welcome! <br>Please choose an option below:</h1>
 			
 			<button class="btn--accent" id="btn--patient">I'm a patient</button>
