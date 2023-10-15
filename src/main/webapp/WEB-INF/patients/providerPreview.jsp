@@ -61,6 +61,9 @@
 				</c:choose>
 				<h1 class="profile--name">${provider.getUser().getFirstName()} ${provider.getUser().getLastName()}</h1>					
 			</div>
+			<a href="/patient/email/${provider.getUser().getId()}">
+				<button class="btn--accent">Send email template</button>
+			</a>
 		</div>
 		
 		

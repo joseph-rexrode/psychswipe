@@ -2,6 +2,7 @@ package com.josephrexrode.psychswipe.controllers;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.josephrexrode.psychswipe.models.Patient;
 import com.josephrexrode.psychswipe.models.Provider;
 import com.josephrexrode.psychswipe.models.User;
+import com.josephrexrode.psychswipe.services.EmailService;
 import com.josephrexrode.psychswipe.services.PatientService;
 import com.josephrexrode.psychswipe.services.ProviderService;
 import com.josephrexrode.psychswipe.services.UserService;
@@ -36,6 +38,9 @@ public class PatientController {
 	
 	@Autowired
 	UserService uService;
+	
+	@Autowired
+	EmailService eService;
 	
 	@PostMapping("/newPatient")
 	public String createPatient(
@@ -160,5 +165,27 @@ public class PatientController {
 		model.addAttribute("provider", pr);
 		
 		return "/patients/providerPreview.jsp";
+	}
+	
+	@GetMapping("/email/{provider_id}")
+	public String emailProvider(
+			@PathVariable("provider_id") Long pid,
+			Model model,
+			HttpSession session) throws MessagingException {
+		
+		if (session.getAttribute("loggedUser") == null) {
+			return "redirect:/";
+		}
+		
+		if (session.getAttribute("profile").toString().compareTo("provider") == 0) {
+			return "redirect:/provider/home";
+		}
+		
+		String providerEmail = uService.findById(pid).getEmail();
+		
+		eService.sendHtmlEmail(providerEmail);
+		
+		return "/patients/providerPreview.jsp";
+		
 	}
 }
