@@ -1,0 +1,2 @@
+'adjvkbvzcwjlmlui'==>ENV['AUTH_SPRMAILPW']
+'jrexrode1998@gmail.com'==>ENV['AUTH_SPRMAILUSR']
